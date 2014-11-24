@@ -90,15 +90,14 @@ package
 			}
 			
 			// Check for col | I used for instead of foreach becouse some where skipped
-			l = _gameObjs.length;
-			for (var cI:int = 0; cI < l; cI++ )
+			for (var cI:int = 0; cI < _gameObjs.length; cI++ )
 			{
 				var c:GameObj = _gameObjs[cI];
 				
 				// Check for collision
 				if (!c.Collide) continue;
 				
-				for (var oI:int = 0; oI < l; oI++ )
+				for (var oI:int = 0; oI < _gameObjs.length; oI++ )
 				{
 					// Skip self
 					if (cI == oI) continue;

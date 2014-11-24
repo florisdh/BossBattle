@@ -1,6 +1,7 @@
 package Levels 
 {
 	import flash.display.MovieClip;
+	import flash.geom.Vector3D;
 	import GameObjects.Bosses.Boss;
 	import GameObjects.Bosses.Boss_Tiki;
 	
@@ -17,7 +18,8 @@ package Levels
 			
 			// Set Boss Position
 			_boss.x = engine.Parent.stage.width / 2;
-			_boss.y = _boss.height / 2 - 200;
+			_boss.y = -_boss.height / 2;
+			_boss.TargetPos = new Vector3D(_boss.x, _boss.y + 500);
 		}
 		
 	}

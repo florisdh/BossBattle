@@ -85,8 +85,6 @@ package GameObjects
 			// Apply Pos
 			x = _position.x;
 			y = _position.y;
-			
-			trace(_velo);
 		}
 		
 	}

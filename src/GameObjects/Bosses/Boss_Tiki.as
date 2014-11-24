@@ -17,7 +17,8 @@ package GameObjects.Bosses
 		public function Boss_Tiki() 
 		{
 			super(new Art_Tiki());
-			
+			_art.x = -_art.width;
+			_art.y = -_art.height / 2;
 		}
 		
 	}

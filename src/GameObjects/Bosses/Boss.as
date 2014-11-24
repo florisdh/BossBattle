@@ -15,6 +15,9 @@ package GameObjects.Bosses {
 		
 		// -- Vars -- //
 		
+		// 0: Idle, 1:Move, 2:Attack, 3: Attack2
+		private var _state:int = 0;
+		
 		protected var _tagetPos:Vector3D;
 		
 		// -- Construct -- //
@@ -22,8 +25,7 @@ package GameObjects.Bosses {
 		public function Boss(art:MovieClip=null) 
 		{
 			super(art);
-			//_art.x = -_art.width / 2;
-			//_art.y = -_art.height / 2;
+			MoveSpeed = 6;
 		}
 		
 		// -- Methods -- //
@@ -35,16 +37,25 @@ package GameObjects.Bosses {
 			{
 				var dis:Number = Vector3D.distance(_tagetPos, Position);
 				
+				// Apply Smooth Movement
+				super.update();
+				
 				// Reached
 				if (dis < MoveSpeed)
 				{
 					Position = _tagetPos.clone();
+					_moveDir.scaleBy(0);
 					_tagetPos = null;
 				}
-				
-				// Move to 
-				
 			}
+		}
+		
+		public function set TargetPos(newVal:Vector3D):void 
+		{
+			// Calculate Movement velo to target
+			_tagetPos = newVal;
+			_moveDir = _tagetPos.subtract(Position);
+			_moveDir.normalize();
 		}
 		
 	}

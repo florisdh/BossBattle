@@ -3,6 +3,7 @@ package GameObjects
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.geom.Vector3D;
+	import GameObjects.Bosses.Boss;
 	
 	/**
 	 * ...
@@ -35,6 +36,19 @@ package GameObjects
 			y = _position.y;
 			
 			if (y < -height) destroy();
+		}
+		
+		override public function willCollide(other:GameObj):Boolean 
+		{
+			return other.hitTestPoint(x, y, true);
+		}
+		
+		override public function onCollide(other:GameObj):void 
+		{
+			if (other is Boss)
+			{
+				destroy();
+			}
 		}
 		
 	}
