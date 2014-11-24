@@ -4,8 +4,10 @@ package GameObjects
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
+	import flash.events.TimerEvent;
 	import flash.geom.Vector3D;
 	import flash.utils.Dictionary;
+	import flash.utils.Timer;
 	import Interfaces.IKeyInputHandler;
 	
 	/**
@@ -27,8 +29,6 @@ package GameObjects
 		// Spawn positions of bullets per shot (relative to current position)
 		public var BulletSpawnPositions:Vector.<Vector3D>;
 		
-		public var ShootInterval:int = 500;
-		
 		// -- Vars -- //
 		
 		// Key States
@@ -40,6 +40,11 @@ package GameObjects
 		// Anim states
 		private var _walkAnim:Boolean = false;
 		
+		// Shoot Interval Timer
+		private var _shootInterval:int = 500;
+		private var _shootTimer:Timer;
+		private var _canShoot:Boolean = true;
+		
 		// -- Construct -- //
 		
 		public function Player() 
@@ -50,9 +55,15 @@ package GameObjects
 			_art.y = -_art.height / 2;
 			
 			BulletSpawnPositions = new <Vector3D> [
-				new Vector3D(-width / 6, -height / 2 - 0),
-				new Vector3D(width / 6, -height / 2 - 0)
+				new Vector3D(-width / 6, -height / 2),
+				new Vector3D(width / 6, -height / 2)
 			];
+			
+			_shootTimer = new Timer(_shootInterval, 1);
+			_shootTimer.addEventListener(TimerEvent.TIMER, function():void 
+			{
+				_canShoot = true;
+			});
 			
 			_bulletFactory = new BulletFactory();
 		}
@@ -111,6 +122,10 @@ package GameObjects
 		
 		private function shoot():void 
 		{
+			if (!_canShoot) return;
+			_canShoot = false;
+			_shootTimer.start();
+			
 			var l:int = BulletSpawnPositions.length;
 			var spawnPos:Vector3D;
 			var newBullet:Bullet;
@@ -149,9 +164,23 @@ package GameObjects
 			if (_moveDir.x == 0 && _moveDir.y == 0) _art.gotoAndStop(0);
 			// Walk
 			else if (!_walkAnim) _art.gotoAndPlay(0);
+			
+			/// Shoot ///
+			if (_keyDown[KEY_SHOOT]) shoot();
 		}
 		
 		// -- Get & Set -- //
+		
+		public function get ShootInterval():int
+		{
+			return _shootInterval;
+		}
+		
+		public function set ShootInterval(newVal:int):void 
+		{
+			_shootInterval = newVal;
+			_shootTimer.delay = newVal;
+		}
 		
 	}
 

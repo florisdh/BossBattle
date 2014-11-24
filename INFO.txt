@@ -9,16 +9,27 @@ TODO:
 	- Boss base
 	- Boss Ai
 	- Multiple Bosses
+	
 	- Level System
-	- Player Skills System
-	- Player Shoot Interval
-	- Player Move Around
 	- Bullet Impact
+	
+	- Player Skills System
+	- Player Health
+	- Boss Health
+	
+	- BaseClass for Boss, Player and Minions
+	
+	- Minions
+	- Minions Spawning
+	- Coins
+	- Coins Spawning
 	
 Bugs:
 	
 	
 Done:
+	- Player Shoot Interval
+	- Player Move Around
 	- Player Shoot
 	- Bullet Factory
 	- PlayerBullet

@@ -80,7 +80,7 @@ package
 		{
 			if (!_started) return;
 			
-			//if (e.keyCode == 32) _screenShake.shake(50, 1, 3);
+			//if (e.keyCode == 32) _screenShake.shake(50, 3, 3);
 			
 			_player.onKeyDown(e);
 		}
