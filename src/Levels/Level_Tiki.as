@@ -14,12 +14,11 @@ package Levels
 		
 		public function Level_Tiki(engine:Engine) 
 		{
-			super(engine, new Art_Background(), new Boss_Tiki());
+			var spawnPos:Vector3D = new Vector3D(580, -400);
+			var targetPos:Vector3D = new Vector3D(spawnPos.x, 150);
 			
-			// Set Boss Position
-			_boss.x = engine.Parent.stage.width / 2;
-			_boss.y = -_boss.height / 2;
-			_boss.TargetPos = new Vector3D(_boss.x, _boss.y + 500);
+			super(engine, new Art_Background(), new Boss_Tiki(spawnPos, targetPos));
+			
 		}
 		
 	}
