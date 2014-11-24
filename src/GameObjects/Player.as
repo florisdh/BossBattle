@@ -18,10 +18,10 @@ package GameObjects
 	{
 		// -- Keys -- //
 		
-		public static const KEY_LEFT:int = 65;
-		public static const KEY_RIGHT:int = 68;
-		public static const KEY_UP:int = 87;
-		public static const KEY_DOWN:int = 83;
+		public static const KEY_LEFT:int = 37;
+		public static const KEY_RIGHT:int = 39;
+		public static const KEY_UP:int = 38;
+		public static const KEY_DOWN:int = 40;
 		public static const KEY_SHOOT:int = 32;
 		
 		// -- Properties -- //
@@ -55,8 +55,8 @@ package GameObjects
 			_art.y = -_art.height / 2;
 			
 			BulletSpawnPositions = new <Vector3D> [
-				new Vector3D(-width / 6, -height / 2),
-				new Vector3D(width / 6, -height / 2)
+				new Vector3D(-width / 2.5, -height / 2),
+				//new Vector3D(width / 6, -height / 2)
 			];
 			
 			_shootTimer = new Timer(_shootInterval, 1);
@@ -157,6 +157,13 @@ package GameObjects
 			if (_keyDown[KEY_LEFT]) _moveDir.x = -1;
 			else if (_keyDown[KEY_RIGHT]) _moveDir.x = 1;
 			else _moveDir.x = 0;
+			
+			
+			/// Bound to world ///
+			if (x - width / 2 < 0) x = width / 2;
+			if (x + width / 2 > stage.stageWidth) x = stage.stageWidth - width / 2;
+			if (y - height / 2 < 0) y = height / 2;
+			if (y + height / 2 > stage.stageHeight) y = stage.stageHeight - height / 2;
 			
 			/// Animation ///
 			
