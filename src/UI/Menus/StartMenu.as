@@ -23,6 +23,7 @@ package UI.Menus
 			super();
 			addChild(new TempArt_Menu_StartBackGround());
 			addButton(new TempArt_Menu_StartButton(), 30, 100, START);
+			addButton(new TempArt_Menu_StartButton(), 30, 200, UPGRADE);
 		}
 		
 	}

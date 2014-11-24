@@ -95,6 +95,7 @@ package
 			
 			_menu = new StartMenu();
 			_menu.addEventListener(StartMenu.START, start);
+			_menu.addEventListener(StartMenu.UPGRADE, showUpgradeMenu);
 			addChild(_menu);
 		}
 		
