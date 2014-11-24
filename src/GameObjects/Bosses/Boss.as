@@ -22,8 +22,8 @@ package GameObjects.Bosses {
 		public function Boss(art:MovieClip=null) 
 		{
 			super(art);
-			//_art.x = -_art.width / 2;
-			//_art.y = -_art.height / 2;
+			_art.x = -_art.width;
+			_art.y = -_art.height / 2;
 		}
 		
 		// -- Methods -- //
