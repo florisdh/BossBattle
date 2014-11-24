@@ -1,0 +1,31 @@
+gertje kaasmaker
+
+Doing:
+	- Level Factory
+	- Intergrate Level factory in Game
+	- Boss Factory
+	
+TODO:
+	- Boss base
+	- Boss Ai
+	- Multiple Bosses
+	- Level System
+	- Player Skills System
+	- Player Shoot Interval
+	- Player Move Around
+	- Bullet Impact
+	
+Bugs:
+	
+	
+Done:
+	- Player Shoot
+	- Bullet Factory
+	- PlayerBullet
+	- Bullet Base
+	- Player Movement
+	- Player Base
+	- ScreenShake
+	- BaseUI
+	- Engine
+	- BaseGame
