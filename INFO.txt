@@ -1,21 +1,13 @@
 gertje kaasmaker
 
 Doing:
-	- Level Factory
-	- Intergrate Level factory in Game
-	- Boss Factory
+	- Boss 2, 3, 4, 5, 6 AI
 	
 TODO:
-	- Boss base
-	- Boss Ai
-	- Multiple Bosses
-	
-	- Level System
 	- Bullet Impact
 	
 	- Player Skills System
 	- Player Health
-	- Boss Health
 	
 	- BaseClass for Boss, Player and Minions
 	
@@ -28,6 +20,12 @@ Bugs:
 	
 	
 Done:
+	- Boss Health
+	- Boss 1 AI
+	- Boss base
+	- Intergrate Level factory in Game
+	- Level Factory
+	- Level System
 	- Player Shoot Interval
 	- Player Move Around
 	- Player Shoot

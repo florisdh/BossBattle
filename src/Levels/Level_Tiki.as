@@ -4,6 +4,7 @@ package Levels
 	import flash.geom.Vector3D;
 	import GameObjects.Bosses.Boss;
 	import GameObjects.Bosses.Boss_Tiki;
+	import GameObjects.Player;
 	
 	/**
 	 * ...
@@ -18,7 +19,6 @@ package Levels
 			var targetPos:Vector3D = new Vector3D(spawnPos.x, 150);
 			
 			super(engine, new Art_Background(), new Boss_Tiki(spawnPos, targetPos));
-			
 		}
 		
 	}

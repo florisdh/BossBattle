@@ -16,7 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'24-11-2014'</value>
+      <value>'27-11-2014'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -30,6 +30,7 @@
       <name>CONFIG::desktop</name>
       <value>false</value>
     </define>
+    <show-actionscript-warnings>false</show-actionscript-warnings>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\src</path-element>
@@ -40,6 +41,8 @@
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Player\Art_Player.swc</path-element>
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Background\Art_Background.swc</path-element>
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\Art_Tiki.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\boss2.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\UI\Art_Ui_Healthbar.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

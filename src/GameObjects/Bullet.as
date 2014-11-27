@@ -13,6 +13,8 @@ package GameObjects
 	{
 		// -- Properties -- //
 		
+		public var Damage:Number = 30;
+		
 		// -- Vars -- //
 		
 		protected var _velo:Vector3D;
@@ -47,6 +49,7 @@ package GameObjects
 		{
 			if (other is Boss)
 			{
+				(other as Boss).Health.damage(Damage);
 				destroy();
 			}
 		}

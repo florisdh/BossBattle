@@ -19,11 +19,14 @@ package GameObjects.Bosses
 		
 		// -- Construct -- //
 		
-		public function Boss_Tiki(spawn:Vector3D, target:Vector3D) 
+		public function Boss_Tiki(spawn:Vector3D, readypos:Vector3D) 
 		{
-			super(new Art_Tiki(), spawn, target);
+			super(new Art_Tiki(), spawn, readypos);
+			
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;
+			
+			_stateSwitchTimer.delay = 4000;
 		}
 		
 		// -- Methods -- //
@@ -34,7 +37,7 @@ package GameObjects.Bosses
 			_state = 1;
 			
 			_attackTargetReached = false;
-			TargetPos = new Vector3D(_readyPos.x, _readyPos.y + 200);
+			TargetPos = new Vector3D(_readyPos.x, _readyPos.y + 270);
 		}
 		
 		override public function update(e:Event = null):void 
@@ -49,7 +52,7 @@ package GameObjects.Bosses
 			if (_state == 0)
 			{
 				var rnd:int = Math.random() * 10;
-				if (rnd < 6)
+				if (rnd < 4)
 				{ // Attack State
 					attack();
 				}

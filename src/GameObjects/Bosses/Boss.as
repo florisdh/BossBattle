@@ -6,6 +6,7 @@ package GameObjects.Bosses {
 	import flash.utils.Timer;
 	import GameObjects.GameObj;
 	import GameObjects.MovingGameObj;
+	import GameObjects.Player;
 	
 	/**
 	 * ...
@@ -13,7 +14,16 @@ package GameObjects.Bosses {
 	 */
 	public class Boss extends MovingGameObj 
 	{
+		// -- Events -- //
+		
+		public static const DIED:String = "Died";
+		
 		// -- Properties -- //
+		
+		public var Target:Player;
+		public var Folow:Boolean = false;
+		public var FollowRange:Number = 10;
+		public var Health:Humanoid;
 		
 		// -- Vars -- //
 		
@@ -22,27 +32,42 @@ package GameObjects.Bosses {
 		protected var _stateSwitchTimer:Timer;
 		
 		protected var _spawned:Boolean = false;
+		
+		// Position where to move to when spawn
 		protected var _readyPos:Vector3D;
 		
-		protected var _tagetPos:Vector3D;
+		// Position Moving to
+		protected var _targetPos:Vector3D;
 		
 		// -- Construct -- //
 		
-		public function Boss(art:MovieClip, spawn:Vector3D, target:Vector3D) 
+		public function Boss(art:MovieClip, spawn:Vector3D, readyPos:Vector3D) 
 		{
 			super(art);
+			
+			Health = new Humanoid(100);
+			Health.addEventListener(Humanoid.DIED, onDied);
 			
 			MoveSpeed = 8;
 			Acceleration = 4;
 			
 			Position = spawn;
-			_readyPos = TargetPos = target;
+			_readyPos = readyPos;
+			TargetPos = readyPos;
 			
 			_stateSwitchTimer = new Timer(3000);
 			_stateSwitchTimer.addEventListener(TimerEvent.TIMER, onStateSwitch);
+			
+			AutoStart = false;
 		}
 		
 		// -- Methods -- //
+		
+		protected function onDied(e:Event):void 
+		{
+			dispatchEvent(new Event(DIED));
+			_art.stop();
+		}
 		
 		protected function onStateSwitch(e:TimerEvent):void 
 		{
@@ -51,32 +76,42 @@ package GameObjects.Bosses {
 		
 		override public function update(e:Event = null):void 
 		{
-			if (!_started) return;
+			if (!_started || Health.Died) return;
+			
+			// Apply Smooth Movement
+			super.update();
 			
 			// Move To Target Pos
-			if (_tagetPos)
+			if (_targetPos)
 			{
-				var dis:Number = Vector3D.distance(_tagetPos, Position);
-				
-				// Apply Smooth Movement
-				super.update();
-				
 				// Reached
+				var dis:Number = Vector3D.distance(_targetPos, Position);
 				if (dis < MoveSpeed)
 				{
-					Position = _tagetPos.clone();
+					Position = _targetPos.clone();
 					_moveDir.scaleBy(0);
-					_tagetPos = null;
+					_targetPos = null;
 					onTargetReach();
 				}
 			}
+			// Move To Player
+			else if (Target && Folow)
+			{
+				var dis:Number = Vector3D.distance(Position, Target.Position);
+				
+				if (dis > FollowRange)
+				{
+					TargetPos = new Vector3D(Target.x, y);
+				}
+			}
+			
 		}
 		
 		public function set TargetPos(newVal:Vector3D):void 
 		{
 			// Calculate Movement velo to target
-			_tagetPos = newVal;
-			_moveDir = _tagetPos.subtract(Position);
+			_targetPos = newVal;
+			_moveDir = _targetPos.subtract(Position);
 			_moveDir.normalize();
 		}
 		

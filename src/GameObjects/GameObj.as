@@ -18,6 +18,7 @@ package GameObjects
 		
 		public var Collide:Boolean = true;
 		public var ParentEngine:Engine;
+		public var AutoStart:Boolean = true;
 
 		// -- Vars -- //
 		
