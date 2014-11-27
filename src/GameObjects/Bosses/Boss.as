@@ -5,14 +5,14 @@ package GameObjects.Bosses {
 	import flash.geom.Vector3D;
 	import flash.utils.Timer;
 	import GameObjects.GameObj;
-	import GameObjects.MovingGameObj;
+	import GameObjects.Character;
 	import GameObjects.Player;
 	
 	/**
 	 * ...
 	 * @author FDH
 	 */
-	public class Boss extends MovingGameObj 
+	public class Boss extends Character 
 	{
 		// -- Events -- //
 		
@@ -24,6 +24,8 @@ package GameObjects.Bosses {
 		public var Folow:Boolean = false;
 		public var FollowRange:Number = 10;
 		public var Health:Humanoid;
+		public var HitDamage:Number = 1;
+		public var HitInterval:int = 500;
 		
 		// -- Vars -- //
 		
@@ -32,6 +34,9 @@ package GameObjects.Bosses {
 		protected var _stateSwitchTimer:Timer;
 		
 		protected var _spawned:Boolean = false;
+		
+		protected var _canHit:Boolean = true;
+		protected var _hitTimer:Timer;
 		
 		// Position where to move to when spawn
 		protected var _readyPos:Vector3D;
@@ -50,10 +55,14 @@ package GameObjects.Bosses {
 			
 			MoveSpeed = 8;
 			Acceleration = 4;
+			Folow = false;
 			
 			Position = spawn;
 			_readyPos = readyPos;
 			TargetPos = readyPos;
+			
+			_hitTimer = new Timer(HitInterval, 1);
+			_hitTimer.addEventListener(TimerEvent.TIMER, onHitTimerTick);
 			
 			_stateSwitchTimer = new Timer(3000);
 			_stateSwitchTimer.addEventListener(TimerEvent.TIMER, onStateSwitch);
@@ -118,6 +127,29 @@ package GameObjects.Bosses {
 		protected function onTargetReach():void 
 		{
 			if (!_spawned) begin();
+		}
+		
+		override public function onCollide(other:GameObj):void 
+		{
+			if (other is Player)
+			{
+				var player:Player = other as Player;
+				player.pushBack(Position, 3);
+				
+				if (_canHit)
+				{
+					_canHit = false;
+					_hitTimer.delay = HitInterval;
+					_hitTimer.start();
+					
+					player.Health.damage(HitDamage);
+				}
+			}
+		}
+		
+		private function onHitTimerTick(e:TimerEvent):void 
+		{
+			_canHit = true;
 		}
 		
 		override public function start(e:Event = null):void 

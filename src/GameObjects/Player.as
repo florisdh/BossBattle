@@ -14,7 +14,7 @@ package GameObjects
 	 * ...
 	 * @author FDH
 	 */
-	public class Player extends MovingGameObj implements IKeyInputHandler
+	public class Player extends Character implements IKeyInputHandler
 	{
 		// -- Keys -- //
 		
@@ -186,6 +186,11 @@ package GameObjects
 			
 			/// Shoot ///
 			if (_keyDown[KEY_SHOOT]) shoot();
+		}
+		
+		override public function willCollide(other:GameObj):Boolean 
+		{
+			return other.hitTestPoint(x, y - height / 2, true);
 		}
 		
 		// -- Get & Set -- //

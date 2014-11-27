@@ -85,6 +85,7 @@ package GameObjects
 		
 		public function set Position(newVal:Vector3D):void 
 		{
+			_position = newVal;
 			x = newVal.x;
 			y = newVal.y;
 		}

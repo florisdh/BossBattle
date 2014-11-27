@@ -1,24 +1,23 @@
 package UI.InGame {
+	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.events.Event;
 	/**
 	 * ...
 	 * @author FDH
 	 */
-	public class UIController 
+	public class UIController extends Sprite
 	{
 		// -- Properties -- //
 		
 		// -- Vars -- //
 		
-		private var _stage:Stage;
 		private var _items:Vector.<UIControl>;
 		
 		// -- Construct & Destroy -- //
 		
-		public function UIController(stage:Stage) 
+		public function UIController() 
 		{
-			_stage = stage;
 			init();
 		}
 		
@@ -49,7 +48,7 @@ package UI.InGame {
 		
 		public function addControl(newControl:UIControl):void 
 		{
-			_stage.addChild(newControl);
+			stage.addChild(newControl);
 			_items.push(newControl);
 			newControl.addEventListener(UIControl.DESTROY, onObjDestroy);
 		}
@@ -63,7 +62,7 @@ package UI.InGame {
 		
 		public function removeControlByInd(ind:int):void 
 		{
-			_stage.removeChild(_items[ind]);
+			stage.removeChild(_items[ind]);
 			_items.splice(ind, 1);
 		}
 		

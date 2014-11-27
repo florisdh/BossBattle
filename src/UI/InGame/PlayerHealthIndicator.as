@@ -20,7 +20,7 @@ package UI.InGame
 			super();
 			
 			_art = new Art_Ui_Healthbar();
-			_art.gotoAndStop(0);
+			_art.gotoAndStop(1);
 			addChild(_art);
 			
 			_maxHealth = _art.totalFrames;
@@ -34,7 +34,7 @@ package UI.InGame
 		public function set Health(newVal:int):void 
 		{
 			_health = newVal;
-			_art.gotoAndStop(_health);
+			_art.gotoAndStop(_maxHealth - _health);
 		}
 		
 		public function get Health():int

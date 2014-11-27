@@ -47,8 +47,6 @@ package UI.InGame
 			// Scale
 			var scale:Number = Math.max(_health / MaxHealth, 0);
 			_art.scaleX = scale;
-			
-			trace(_health + " of " + MaxHealth + " is " + _health / MaxHealth);
 		}
 		
 		public function get Health():int

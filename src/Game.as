@@ -57,12 +57,15 @@ package
 			_screenShake = new ObjectShake(this);
 			
 			// UI
-			_uiController = new UIController(stage);
+			_uiController = new UIController();
+			addChild(_uiController);
+			
 			_playerHealthBar = new PlayerHealthIndicator();
 			_playerHealthBar.x = 10;
 			_playerHealthBar.y = stage.stageHeight - _playerHealthBar.height - 10;
 			_bossHealthBar = new BossHealthBar();
 			_bossHealthBar.x = (stage.stageWidth - _bossHealthBar.width) / 2;
+			
 			_uiController.addControl(_playerHealthBar);
 			_uiController.addControl(_bossHealthBar);
 			
@@ -70,14 +73,10 @@ package
 			
 			_engine = new Engine(this);
 			
-			_player = new Player(100);
+			_player = new Player(6);
 			_player.x = stage.stageWidth / 2;
 			_player.y = stage.stageHeight - _player.height / 2 - 10;
-			_player.Health.addEventListener(Humanoid.CHANGED, function ():void 
-			{
-				_playerHealthBar.Health = _player.Health.Health;
-			});
-			
+			_player.Health.addEventListener(Humanoid.CHANGED, onPlayerHit);
 			_engine.addObject(_player);
 			
 			nextLevel();
@@ -116,6 +115,11 @@ package
 			_player.onKeyUp(e);
 		}
 		
+		private function onPlayerHit(e:Event):void 
+		{
+			_playerHealthBar.Health = _player.Health.Health;
+		}
+		
 		public function start(e:Event = null):void 
 		{
 			if (_started) return;
@@ -141,11 +145,8 @@ package
 			_levelIndex++;
 			if (_levelIndex >= LevelFactory.LEVELS_AMOUNT)
 			{
-				trace("Levels Done");
 				return;
 			}
-			
-			trace("Start Level: " + _levelIndex);
 			
 			// Get Next Level
 			_level = _levelFactory.create(_levelIndex, _engine);
@@ -153,6 +154,7 @@ package
 			_level.CurrentBoss.Health.addEventListener(Humanoid.CHANGED, function ():void 
 			{
 				_bossHealthBar.Health = _level.CurrentBoss.Health.Health;
+				_screenShake.shake(50, 2, 3);
 			});
 			_level.addEventListener(Level.DONE, onLevelDone);
 			
@@ -166,7 +168,6 @@ package
 		
 		private function onLevelDone(e:Event = null):void 
 		{
-			trace("Level is done: " + _levelIndex);
 			nextLevel();
 		}
 		

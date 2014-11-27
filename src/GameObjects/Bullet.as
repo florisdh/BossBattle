@@ -45,15 +45,6 @@ package GameObjects
 			return other.hitTestPoint(x, y, true);
 		}
 		
-		override public function onCollide(other:GameObj):void 
-		{
-			if (other is Boss)
-			{
-				(other as Boss).Health.damage(Damage);
-				destroy();
-			}
-		}
-		
 	}
 
 }

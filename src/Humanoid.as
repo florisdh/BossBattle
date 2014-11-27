@@ -34,13 +34,14 @@ package
 		
 		public function damage(dmg:Number):void 
 		{
+			// Check if dead
+			if (Health <= 0 && !Died) Died = true;
+			
+			// Apply Damage
 			Health -= dmg;
 			
-			if (Health <= 0 && !Died)
-			{
-				Died = true;
-				dispatchEvent(new Event(DIED));
-			}
+			// Dispatch die event after health change event
+			if (Died) dispatchEvent(new Event(DIED));
 		}
 		
 		public function heal(amt:Number):void 
@@ -57,10 +58,15 @@ package
 		
 		public function set Health(newVal:Number):void
 		{
+			// Bound
+			newVal = Math.max(Math.min(newVal, MaxHealth), 0);
+			
+			// Check if changed
 			if (_health != newVal)
 			{
 				_health = newVal;
 				dispatchEvent(new Event(CHANGED));
+				trace(_health);
 			}
 		}
 		

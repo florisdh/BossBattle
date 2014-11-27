@@ -10,81 +10,35 @@ package GameObjects
 	 */
 	public class MovingGameObj extends GameObj 
 	{
-		// -- Properties -- 
-		
-		// Movement
-		public var MoveSpeed:Number = 10;
-		public var Acceleration:Number = 3;
-		public var BrakeSpeed:Number = 3;
+		// -- Properties -- //
 		
 		// -- Vars -- //
 		
-		// Velocity to be applied this update
-		protected var _velo:Vector3D = new Vector3D();
-		
-		// Movement Direction
-		protected var _moveDir:Vector3D = new Vector3D();
+		protected var _velocity:Vector3D;
 		
 		// -- Construct -- //
 		
 		public function MovingGameObj(art:MovieClip=null) 
 		{
 			super(art);
-			
+			_velocity = new Vector3D();
 		}
 		
 		// -- Methods -- //
 		
+		public function pushBack(from:Vector3D, dis:Number):void 
+		{
+			var offset:Vector3D = Position.subtract(from);
+			offset.normalize();
+			offset.scaleBy(dis);
+			Position = Position.add(offset);
+		}
+		
+		// -- Overrides -- //
+		
 		override public function update(e:Event = null):void 
 		{
-			if (!_started) return;
-			
-			// Move Horizontal
-			if (_moveDir.x != 0)
-			{
-				// Accelerate Horizontal
-				if (Math.abs(_velo.x) < MoveSpeed)
-					_velo.x += Acceleration * _moveDir.x;
-				
-				// Corrent Speed & Hold
-				else _velo.x = MoveSpeed * _moveDir.x;
-			}
-			else
-			{
-				// Break
-				if (Math.abs(_velo.x) > BrakeSpeed)
-					_velo.x += _velo.x < 0 ? BrakeSpeed : -BrakeSpeed;
-				
-				// Stop
-				else _velo.x = 0;
-			}
-			
-			// Move Vertical
-			if (_moveDir.y != 0)
-			{
-				// Accelerate Vertical
-				if (Math.abs(_velo.y) < MoveSpeed)
-					_velo.y += Acceleration * _moveDir.y;
-				
-				// Corrent Speed & Hold
-				else _velo.y = MoveSpeed * _moveDir.y;
-			}
-			else
-			{
-				// Break Vertical
-				if (Math.abs(_velo.y) > BrakeSpeed)
-					_velo.y += _velo.y < 0 ? BrakeSpeed : -BrakeSpeed;
-				
-				// Stop Vertical
-				else _velo.y = 0;
-			}
-			
-			// Add Velo
-			_position = _position.add(_velo);
-			
-			// Apply Pos
-			x = _position.x;
-			y = _position.y;
+			Position = Position.add(_velocity);
 		}
 		
 	}
