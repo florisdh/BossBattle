@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <project version="2">
   <!-- Output SWF options -->
   <output>
@@ -56,6 +56,8 @@
     <element path="Art\Player\Art_Player.swc" />
     <element path="Art\Background\Art_Background.swc" />
     <element path="Art\Bosses\Art_Tiki.swc" />
+    <element path="Art\GUI\Art_startscherm.swc" />
+    <element path="Art\UI\Art_startscherm.swc" />
     <element path="Art\Bosses\boss2.swc" />
     <element path="Art\UI\Art_Ui_Healthbar.swc" />
   </libraryPaths>

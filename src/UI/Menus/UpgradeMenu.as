@@ -8,6 +8,7 @@ package UI.Menus
 	 */
 	public class UpgradeMenu extends Menu 
 	{
+		public static const BACK:String = "Back";
 		
 		public static const SHOOTSPEED:String = "ShootSpeed";
 		public static const HEALTH:String = "Health";
@@ -24,16 +25,17 @@ package UI.Menus
 		public function UpgradeMenu() 
 		{
 			super();
-			addButton(new TempArt_UpgradeButton(),100,100,SHOOTSPEED);
-			addButton(new TempArt_UpgradeButton(), 200, 200, HEALTH);
-			addButton(new TempArt_UpgradeButton(),300,300,DAMAGE);
-			addButton(new TempArt_UpgradeButton(), 400, 400, MOVESPEED);
+			
+			addButton(new TempArt_BackBtn(), 100, 100, BACK);
+			addButton(new TempArt_UpgradeButton(),	300,300,SHOOTSPEED);
+			addButton(new TempArt_UpgradeButton(), 300, 500, HEALTH);
+			addButton(new TempArt_UpgradeButton(),	700,300,DAMAGE);
+			addButton(new TempArt_UpgradeButton(), 700, 500, MOVESPEED);
 			
 			addEventListener(SHOOTSPEED, OnShootSpeedPressed);
-			addEventListener(HEALTH, OnHealthPressed)
-			addEventListener(DAMAGE, OnDamagePressed)
-			addEventListener(MOVESPEED, OnMoveSpeedPressed)
-
+			addEventListener(HEALTH, OnHealthPressed);
+			addEventListener(DAMAGE, OnDamagePressed);
+			addEventListener(MOVESPEED, OnMoveSpeedPressed);
 		}
 		
 		private function OnShootSpeedPressed(e:Event):void 

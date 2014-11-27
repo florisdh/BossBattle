@@ -1,5 +1,6 @@
 package UI.Menus 
 {
+	import flash.events.Event;
 	/**
 	 * ...
 	 * @author FDH
@@ -11,11 +12,7 @@ package UI.Menus
 		public function DeathMenu() 
 		{
 			super();
-			
+			addButton(new TempArt_BackBtn(), 100, 100, MAINMENU);			
 		}
-		
-		
-		
 	}
-
 }
