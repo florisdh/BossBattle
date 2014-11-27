@@ -37,20 +37,17 @@
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-<<<<<<< HEAD
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Temp\TempArt.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Player\Art_Player.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_Background.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Bosses\Art_Tiki.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\GUI\Art_startscherm.swc</path-element>
-=======
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Temp\TempArt.swc</path-element>
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Player\Art_Player.swc</path-element>
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Background\Art_Background.swc</path-element>
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\Art_Tiki.swc</path-element>
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\boss2.swc</path-element>
       <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\UI\Art_Ui_Healthbar.swc</path-element>
->>>>>>> FETCH_HEAD
     </library-path>
   </compiler>
   <file-specs>
