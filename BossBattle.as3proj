@@ -29,7 +29,7 @@
     <option loadConfig="" />
     <option optimize="True" />
     <option omitTraces="True" />
-    <option showActionScriptWarnings="True" />
+    <option showActionScriptWarnings="False" />
     <option showBindingWarnings="True" />
     <option showInvalidCSS="True" />
     <option showDeprecationWarnings="True" />
@@ -56,8 +56,13 @@
     <element path="Art\Player\Art_Player.swc" />
     <element path="Art\Background\Art_Background.swc" />
     <element path="Art\Bosses\Art_Tiki.swc" />
+<<<<<<< HEAD
     <element path="Art\GUI\Art_startscherm.swc" />
     <element path="Art\UI\Art_startscherm.swc" />
+=======
+    <element path="Art\Bosses\boss2.swc" />
+    <element path="Art\UI\Art_Ui_Healthbar.swc" />
+>>>>>>> FETCH_HEAD
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

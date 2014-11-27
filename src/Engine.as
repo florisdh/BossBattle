@@ -124,7 +124,8 @@ package
 			
 			for (var i:int = _gameObjs.length - 1; i >= 0; i-- )
 			{
-				_gameObjs[i].start();
+				if (_gameObjs[i].AutoStart)
+					_gameObjs[i].start();
 			}
 		}
 		

@@ -4,11 +4,12 @@ package UI.InGame {
 	import flash.events.Event;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
+	import Interfaces.IUpdateable;
 	/**
 	 * ...
 	 * @author FDH
 	 */
-	public class UIControl extends Sprite
+	public class UIControl extends Sprite implements IUpdateable
 	{
 		// -- Events -- //
 		
@@ -50,7 +51,7 @@ package UI.InGame {
 		
 		// -- Methods -- //
 		
-		public function update():void 
+		public function update(e:Event = null):void 
 		{
 			
 		}

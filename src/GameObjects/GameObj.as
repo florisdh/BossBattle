@@ -18,6 +18,7 @@ package GameObjects
 		
 		public var Collide:Boolean = true;
 		public var ParentEngine:Engine;
+		public var AutoStart:Boolean = true;
 
 		// -- Vars -- //
 		
@@ -84,7 +85,6 @@ package GameObjects
 		
 		public function set Position(newVal:Vector3D):void 
 		{
-			_position = newVal;
 			x = newVal.x;
 			y = newVal.y;
 		}

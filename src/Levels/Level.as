@@ -1,28 +1,31 @@
 package Levels {
 	import flash.display.MovieClip;
 	import flash.events.Event;
+	import flash.events.EventDispatcher;
 	import GameObjects.Bosses.Boss;
+	import GameObjects.Player;
 	import Interfaces.IStartable;
 	import Interfaces.IUpdateable;
 	/**
 	 * ...
 	 * @author FDH
 	 */
-	public class Level implements IStartable, IUpdateable
+	public class Level extends EventDispatcher implements IStartable, IUpdateable
 	{
+		// -- Events -- //
+		
+		public static const DONE:String = "Done";
+		
 		// -- Properties -- //
 		
-		// CallBack When Done
-		public var LevelDone:Function;
+		public var CurrentBoss:Boss;
 		
 		// -- Vars -- //
 		
 		protected var _started:Boolean;
-		
 		protected var _engine:Engine;
-		
 		protected var _bg:MovieClip;
-		protected var _boss:Boss;
+		protected var _player:Player;
 		
 		// -- Construct -- //
 		
@@ -30,19 +33,20 @@ package Levels {
 		{
 			_engine = engine;
 			_bg = bg;
-			_boss = boss;
+			CurrentBoss = boss;
+			CurrentBoss.addEventListener(Boss.DIED, onDone);
 			init();
 		}
 		
 		private function init():void 
 		{
 			_engine.Parent.addChildAt(_bg, 0);
-			_engine.addObject(_boss, 1);
+			_engine.addObject(CurrentBoss, 1);
 		}
 		
 		private function destroy():void 
 		{
-			_engine.removeObject(_boss);
+			_engine.removeObject(CurrentBoss);
 			_engine.Parent.removeChild(_bg);
 		}
 		
@@ -58,6 +62,7 @@ package Levels {
 			if (_started) return;
 			_started = true;
 			
+			CurrentBoss.start();
 		}
 		
 		public function stop(e:Event = null):void 
@@ -65,11 +70,21 @@ package Levels {
 			if (!_started) return;
 			_started = false;
 			
+			CurrentBoss.stop();
+			
+			_engine.Parent.removeChild(_bg);
+			_engine.removeObject(CurrentBoss);
 		}
 		
-		private function onDone():void 
+		private function onDone(e:Event = null):void 
 		{
-			if (onDone != null) onDone();
+   			dispatchEvent(new Event(DONE));
+		}
+		
+		public function set TargetPlayer(newVal:Player):void
+		{
+			_player = newVal;
+			CurrentBoss.Target = _player;
 		}
 		
 	}

@@ -29,6 +29,8 @@ package GameObjects
 		// Spawn positions of bullets per shot (relative to current position)
 		public var BulletSpawnPositions:Vector.<Vector3D>;
 		
+		public var Health:Humanoid;
+		
 		// -- Vars -- //
 		
 		// Key States
@@ -47,12 +49,14 @@ package GameObjects
 		
 		// -- Construct -- //
 		
-		public function Player() 
+		public function Player(maxHealth:Number) 
 		{
 			super(new Art_Player());
 			_art.gotoAndStop(0);
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;
+			
+			Health = new Humanoid(maxHealth);
 			
 			BulletSpawnPositions = new <Vector3D> [
 				new Vector3D(-width / 2.5, -height / 2),
@@ -168,9 +172,17 @@ package GameObjects
 			/// Animation ///
 			
 			// Stop Walking
-			if (_moveDir.x == 0 && _moveDir.y == 0) _art.gotoAndStop(0);
+			if (_moveDir.x == 0 && _moveDir.y == 0 && _walkAnim)
+			{
+				_walkAnim = false;
+				_art.gotoAndStop(0);
+			}
 			// Walk
-			else if (!_walkAnim) _art.gotoAndPlay(0);
+			else if (!_walkAnim)
+			{
+				_walkAnim = true;
+				_art.gotoAndPlay(0);
+			}
 			
 			/// Shoot ///
 			if (_keyDown[KEY_SHOOT]) shoot();
