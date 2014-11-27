@@ -21,9 +21,9 @@ package UI.Menus
 		public function StartMenu() 
 		{
 			super();
-			addChild(new TempArt_Menu_StartBackGround());
-			addButton(new TempArt_Menu_StartButton(), 30, 100, START);
-			addButton(new TempArt_Menu_StartButton(), 30, 200, UPGRADE);
+			addChild(new Art_Startscherm());
+			addButton(new TempArt_Menu_StartButton(), 100, 100, START);
+			addButton(new TempArt_Menu_UpgradeBtn(), 100, 200, UPGRADE);
 		}
 		
 	}

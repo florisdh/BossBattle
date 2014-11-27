@@ -104,6 +104,7 @@ package
 			hideMenu();
 			
 			_menu = new UpgradeMenu();
+			_menu.addEventListener(UpgradeMenu.BACK, showStartMenu);
 			addChild(_menu);
 		}
 		
@@ -126,5 +127,4 @@ package
 			}
 		}
 	}
-	
 }

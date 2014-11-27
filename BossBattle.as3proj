@@ -56,6 +56,8 @@
     <element path="Art\Player\Art_Player.swc" />
     <element path="Art\Background\Art_Background.swc" />
     <element path="Art\Bosses\Art_Tiki.swc" />
+    <element path="Art\GUI\Art_startscherm.swc" />
+    <element path="Art\UI\Art_startscherm.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
