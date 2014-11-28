@@ -2,6 +2,7 @@ package UI.Menus
 {
 	import flash.display.SimpleButton;
 	import flash.events.Event;
+	import flash.media.Sound;
 	/**
 	 * ...
 	 * @author FDH
@@ -14,6 +15,9 @@ package UI.Menus
 		public static const DAMAGE		:	String = "Damage";
 		public static const MOVESPEED	:	String = "MoveSpeed";
 		
+		var _upgradeSound:Sound = new Aud_Upgrade();
+		var _buttonClick:Sound = new Aud_ButtonKlick();
+
 		public function UpgradeMenu() 
 		{
 			super();
@@ -26,17 +30,23 @@ package UI.Menus
 			addButton(new art_buttondamage(), 600, 250, DAMAGE);
 			addButton(new art_buttonspeed(), 600, 400, MOVESPEED);
 			
+			addEventListener(BACK,OnBackPressed)
 			addEventListener(SHOOTSPEED, OnShootSpeedPressed);
 			addEventListener(HEALTH, OnHealthPressed);
 			addEventListener(DAMAGE, OnDamagePressed);
 			addEventListener(MOVESPEED, OnMoveSpeedPressed);
 		}
 		
+		private function OnBackPressed(e:Event):void 
+		{
+			_buttonClick.play();
+		}
+		
 		private function OnShootSpeedPressed(e:Event):void 
 		{
 			if (UserStats.ShootInterval > UserStats.MinShootInterval)
 				UserStats.ShootInterval -= 100;
-			
+			upgraded()
 			trace(UserStats.ShootInterval);
 		}
 		
@@ -44,7 +54,7 @@ package UI.Menus
 		{
 			if (UserStats.Health < UserStats.MaxHealth)
 				UserStats.Health += 1;
-			
+			upgraded()
 			trace(UserStats.Health);
 		}
 		
@@ -52,7 +62,7 @@ package UI.Menus
 		{
 			if (UserStats.Damage < UserStats.MaxDamage)
 				UserStats.Damage *= 2;
-			
+			upgraded()
 			trace(UserStats.Damage);
 		}
 		
@@ -60,8 +70,13 @@ package UI.Menus
 		{
 			if (UserStats.MoveSpeed < UserStats.MaxMoveSpeed)
 				UserStats.MoveSpeed += 2;
-			
+			upgraded()
 			trace(UserStats.MoveSpeed);
+		}
+		
+		private function upgraded():void
+		{
+			_upgradeSound.play();
 		}
 	}
 }

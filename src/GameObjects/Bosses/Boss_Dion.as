@@ -14,6 +14,10 @@ package GameObjects.Bosses
 		public function Boss_Dion(spawn:Vector3D, readyPos:Vector3D) 
 		{
 			super(new Art_Dion(), spawn, readyPos);
+			
+			Health.MaxHealth = 1500;
+			
+			Health.MaxHealth = 1000;
 		}
 		
 		override public function update(e:Event = null):void 

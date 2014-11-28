@@ -8,6 +8,7 @@ package GameObjects
 	import flash.geom.Vector3D;
 	import flash.utils.Dictionary;
 	import flash.utils.Timer;
+	import flash.media.Sound;
 	import Interfaces.IKeyInputHandler;
 	
 	/**
@@ -32,6 +33,7 @@ package GameObjects
 		public var Health:Humanoid;
 		
 		// -- Vars -- //
+		private var _shootSound:Sound = new Aud_Shooting();
 		
 		// Key States
 		private var _keyDown:Dictionary = new Dictionary();
@@ -130,6 +132,8 @@ package GameObjects
 			if (!_canShoot) return;
 			_canShoot = false;
 			_shootTimer.start();
+			
+			_shootSound.play();
 			
 			var l:int = BulletSpawnPositions.length;
 			var spawnPos:Vector3D;

@@ -13,7 +13,7 @@ package GameObjects.Bosses
 		public function Boss_Finn(spawn:Vector3D, readyPos:Vector3D) 
 		{
 			super(new Art_FINN(), spawn, readyPos);
-			
+			Health.MaxHealth = 3000;
 		}
 		
 	}

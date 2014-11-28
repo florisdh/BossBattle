@@ -17,6 +17,9 @@ package GameObjects.Bosses
 		public function Boss_PingBear(spawn:Vector3D, readyPos:Vector3D) 
 		{
 			super(new Art_Pingbear(), spawn, readyPos);
+			
+			Health.MaxHealth = 500;
+			
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;
 			
