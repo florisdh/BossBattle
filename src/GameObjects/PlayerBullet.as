@@ -19,7 +19,7 @@ package GameObjects
 		
 		public function PlayerBullet() 
 		{
-			super(new TempArt_Player_Projectile());
+			super(new Art_Bullet());
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;
 			
