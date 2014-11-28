@@ -40,15 +40,16 @@ package UI.InGame {
 		
 		public function update(e:Event = null):void 
 		{
-			for each (var c:UIControl in _items)
+			var l:int = _items.length;
+			for (var i:int = l - 1; i > 0; i--) 
 			{
-				c.update();
+				_items[i].update();
 			}
 		}
 		
 		public function addControl(newControl:UIControl):void 
 		{
-			stage.addChild(newControl);
+			addChild(newControl);
 			_items.push(newControl);
 			newControl.addEventListener(UIControl.DESTROY, onObjDestroy);
 		}
@@ -62,7 +63,7 @@ package UI.InGame {
 		
 		public function removeControlByInd(ind:int):void 
 		{
-			stage.removeChild(_items[ind]);
+			removeChild(_items[ind]);
 			_items.splice(ind, 1);
 		}
 		

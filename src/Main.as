@@ -38,7 +38,8 @@ package
 			
 			// Create game
 			_game = new Game();
-			//_game.addEventListener(Game.DEATH, onDeath);
+			_game.addEventListener(Game.FAILED, onFailed);
+			_game.addEventListener(Game.SUCCEED, onSucceed);
 			
 			showStartMenu();
 			
@@ -48,10 +49,16 @@ package
 			stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
 		}
 		
-		private function onDeath(e:Event):void 
+		private function onSucceed(e:Event):void 
 		{
 			stop();
-			showEndMenu();
+			showUpgradeMenu();
+		}
+		
+		private function onFailed(e:Event):void 
+		{
+			stop();
+			showUpgradeMenu();
 		}
 		
 		private function update(e:Event):void 
@@ -85,8 +92,8 @@ package
 		{
 			if (!_game.started) return;
 			
-			removeChild(_game);
 			_game.stop();
+			removeChild(_game);
 		}
 		
 		private function showStartMenu(e:Event = null):void 
@@ -95,7 +102,6 @@ package
 			
 			_menu = new StartMenu();
 			_menu.addEventListener(StartMenu.START, start);
-			_menu.addEventListener(StartMenu.UPGRADE, showUpgradeMenu);
 			addChild(_menu);
 		}
 		
@@ -105,15 +111,6 @@ package
 			
 			_menu = new UpgradeMenu();
 			_menu.addEventListener(UpgradeMenu.BACK, showStartMenu);
-			addChild(_menu);
-		}
-		
-		private function showEndMenu(e:Event = null):void 
-		{
-			hideMenu();
-			
-			_menu = new DeathMenu();
-			_menu.addEventListener(DeathMenu.MAINMENU, showStartMenu);
 			addChild(_menu);
 		}
 		

@@ -24,6 +24,9 @@ package
 	{
 		// -- Events -- //
 		
+		public static const FAILED:String = "Failed";
+		public static const SUCCEED:String = "Susseed";
+		
 		// -- Properties -- //
 		
 		// -- Vars -- //
@@ -34,7 +37,7 @@ package
 		private var _screenShake:ObjectShake;
 		
 		private var _level:Level;
-		private var _levelIndex:int = -1;
+		private var _levelIndex:int;
 		private var _levelFactory:LevelFactory;
 		
 		// State
@@ -54,6 +57,8 @@ package
 		
 		private function init():void 
 		{
+			_levelIndex = -1;
+			
 			_screenShake = new ObjectShake(this);
 			
 			// UI
@@ -77,6 +82,7 @@ package
 			_player.x = stage.stageWidth / 2;
 			_player.y = stage.stageHeight - _player.height / 2 - 10;
 			_player.Health.addEventListener(Humanoid.CHANGED, onPlayerHit);
+			_player.Health.addEventListener(Humanoid.DIED, onPlayerDied);
 			_engine.addObject(_player);
 			
 			// Load Current Stats
@@ -90,7 +96,11 @@ package
 		
 		private function destroy():void 
 		{
+			_uiController.destroy();
+			removeChild(_uiController);
+			if (_level) _level.stop();
 			
+			_engine.stop();
 		}
 		
 		// -- Methods -- //
@@ -136,6 +146,11 @@ package
 			_started = false;
 			
 			destroy();
+		}
+		
+		private function onPlayerDied(e:Event):void 
+		{
+			dispatchEvent(new Event(FAILED));
 		}
 		
 		public function nextLevel(e:Event = null):void 

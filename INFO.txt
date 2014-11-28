@@ -1,13 +1,11 @@
 Doing:
-	- Boss 2, 3, 4, 5, 6 AI
+	- Player death
+	- Finish Screen > Goto UpgradeMenu
 	
 TODO:
-	
-	- Player Skills System
-	
-	- Minions
-	- Minions AI
-	- Minions Spawning
+	? Minions
+	? Minions AI
+	? Minions Spawning
 	
 	- Coins
 	- Coins Spawning
@@ -16,11 +14,12 @@ Bugs:
 	
 	
 Done:
+	- Player Skills System
 	- BaseClass for Boss, Player and Minions
 	- Player Health
 	- Bullet Impact
 	- Boss Health
-	- Boss 1 AI
+	- Boss 1, 2, 3, 4, 5, 6 AI
 	- Boss base
 	- Intergrate Level factory in Game
 	- Level Factory

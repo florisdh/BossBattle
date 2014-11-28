@@ -26,10 +26,7 @@ package GameObjects.Bosses
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;
 			
-			HitDamage = 1;
-			HitInterval = 0.5
-			
-			_stateSwitchTimer.delay = 4000;
+			_stateSwitchTimer.delay = 5000;
 			_attack1Chance = 0.7;
 			_attack2Chance = 0;
 		}
@@ -43,7 +40,8 @@ package GameObjects.Bosses
 			var attackPos:Vector3D = Target.Position.subtract(Position);
 			var dis:Number = attackPos.length;
 			attackPos.normalize();
-			attackPos.scaleBy(dis - width / 3);
+			//attackPos.scaleBy(dis - width / 3);
+			attackPos.scaleBy(300);
 			TargetPos = Position.add(attackPos);
 		}
 		

@@ -60,6 +60,9 @@ package GameObjects.Bosses {
 			BrakeSpeed = 8;
 			Folow = false;
 			
+			HitDamage = 1;
+			HitInterval = 350;
+			
 			Position = spawn;
 			_readyPos = readyPos;
 			TargetPos = readyPos;

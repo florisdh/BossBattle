@@ -10,7 +10,6 @@ package UI.Menus
 		// -- Events -- //
 		
 		public static const START:String = "Start";
-		public static const UPGRADE:String = "Upgrade";
 		
 		// -- Vars -- //
 		
@@ -23,7 +22,6 @@ package UI.Menus
 			super();
 			addChild(new Art_Startscherm());
 			addButton(new Art_Startbutton(), 250, 350, START);
-			addButton(new TempArt_Menu_UpgradeBtn(), 100, 200, UPGRADE);
 		}
 		
 	}
