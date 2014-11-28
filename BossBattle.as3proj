@@ -74,6 +74,7 @@
     <element path="Art\UI\buttons.swc" />
     <element path="Art\Background\bgfinn.swc" />
     <element path="Art\Background\bgdion.swc" />
+    <element path="Sounds\Aud_Soundtrack.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
