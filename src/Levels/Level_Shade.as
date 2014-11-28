@@ -14,7 +14,7 @@ package Levels
 		
 		public function Level_Shade(engine:Engine) 
 		{
-			var spawnPos:Vector3D = new Vector3D(640, -400);
+			var spawnPos:Vector3D = new Vector3D(300, -400);
 			var targetPos:Vector3D = new Vector3D(spawnPos.x, 150);
 			
 			super(engine, new Art_Background(), new Boss_Shade(spawnPos, targetPos));
