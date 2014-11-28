@@ -16,8 +16,7 @@ package GameObjects.Bosses
 			super(new Art_Dion(), spawn, readyPos);
 			
 			Health.MaxHealth = 1500;
-			
-			Health.MaxHealth = 1000;
+			Health.Health = Health.MaxHealth;
 		}
 		
 		override public function update(e:Event = null):void 

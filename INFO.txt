@@ -1,20 +1,19 @@
 Doing:
-	- Player death
-	- Finish Screen > Goto UpgradeMenu
 	
 TODO:
 	? Minions
 	? Minions AI
 	? Minions Spawning
 	
-	- Coins
-	- Coins Spawning
-	
 Bugs:
 	
 	
 Done:
+	- Player death
+	- Coins
+	- Coins Spawning
 	- Player Skills System
+	- Finish Screen > Goto UpgradeMenu
 	- BaseClass for Boss, Player and Minions
 	- Player Health
 	- Bullet Impact

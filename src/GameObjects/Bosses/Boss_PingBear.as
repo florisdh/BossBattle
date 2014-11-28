@@ -19,6 +19,7 @@ package GameObjects.Bosses
 			super(new Art_Pingbear(), spawn, readyPos);
 			
 			Health.MaxHealth = 500;
+			Health.Health = Health.MaxHealth;
 			
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;

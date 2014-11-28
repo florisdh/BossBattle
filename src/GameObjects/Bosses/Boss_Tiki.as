@@ -24,6 +24,7 @@ package GameObjects.Bosses
 			super(new Art_Tiki(), spawn, readypos);
 			
 			Health.MaxHealth = 200;
+			Health.Health = Health.MaxHealth;
 			
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;

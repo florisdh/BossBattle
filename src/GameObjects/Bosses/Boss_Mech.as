@@ -15,6 +15,7 @@ package GameObjects.Bosses
 			super(new Art_MechMonster_Anmations(), spawn, readyPos);
 			
 			Health.MaxHealth = 5000;
+			Health.Health = Health.MaxHealth;
 			
 		}
 		

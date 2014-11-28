@@ -15,6 +15,7 @@ package GameObjects.Bosses
 			super(new Shade_Animations(), spawn, readyPos);
 			
 			Health.MaxHealth = 10000;
+			Health.Health = Health.MaxHealth;
 		}
 		
 	}

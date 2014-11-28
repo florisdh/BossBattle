@@ -14,6 +14,7 @@ package GameObjects.Bosses
 		{
 			super(new Art_FINN(), spawn, readyPos);
 			Health.MaxHealth = 3000;
+			Health.Health = Health.MaxHealth;
 		}
 		
 	}

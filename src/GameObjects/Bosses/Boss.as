@@ -112,6 +112,9 @@ package GameObjects.Bosses {
 			// Move To Target Pos
 			if (_targetPos)
 			{
+				_moveDir = _targetPos.subtract(Position);
+				_moveDir.normalize();
+				
 				// Reached
 				var dis:Number = Vector3D.distance(_targetPos, Position);
 				if (dis <= MoveSpeed * 2)
@@ -199,8 +202,6 @@ package GameObjects.Bosses {
 		{
 			// Calculate Movement velo to target
 			_targetPos = newVal;
-			_moveDir = _targetPos.subtract(Position);
-			_moveDir.normalize();
 		}
 		
 		
