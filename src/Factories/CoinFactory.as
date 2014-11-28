@@ -1,6 +1,7 @@
 package Factories 
 {
 	import GameObjects.Coins.BronzeCoin;
+	import GameObjects.Coins.Coin;
 	import GameObjects.Coins.GoldCoin;
 	import GameObjects.Coins.SilverCoin;
 	/**
@@ -12,8 +13,8 @@ package Factories
 		// -- Types -- //
 		
 		public static const GOLDCOIN:int = 0;
-		public static const SILVERCOIN:int = 0;
-		public static const BRONZECOIN:int = 0;
+		public static const SILVERCOIN:int = 1;
+		public static const BRONZECOIN:int = 2;
 		
 		// -- Construct -- //
 		
@@ -26,18 +27,26 @@ package Factories
 		
 		override public function create(type:int, engine:Engine):* 
 		{
+			var newCoin:Coin;
+			
 			switch (type)
 			{
 				case GOLDCOIN:
-					return new GoldCoin();
+					newCoin = new GoldCoin();
 				break;
 				case SILVERCOIN:
-					return new SilverCoin();
+					newCoin = new SilverCoin();
 				break;
 				case BRONZECOIN:
-					return new BronzeCoin();
+					newCoin = new BronzeCoin();
 				break;
 			}
+			
+			if (!newCoin) return null;
+			
+			engine.addObject(newCoin, 1);
+			
+			return newCoin;
 		}
 	}
 

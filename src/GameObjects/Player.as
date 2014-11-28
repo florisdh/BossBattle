@@ -8,6 +8,9 @@ package GameObjects
 	import flash.geom.Vector3D;
 	import flash.utils.Dictionary;
 	import flash.utils.Timer;
+	import GameObjects.Bosses.Boss;
+	import GameObjects.Bullets.Bullet;
+	import GameObjects.Coins.Coin;
 	import flash.media.Sound;
 	import Interfaces.IKeyInputHandler;
 	
@@ -218,7 +221,19 @@ package GameObjects
 		
 		override public function willCollide(other:GameObj):Boolean 
 		{
-			return other.hitTestPoint(x, y - height / 2, true);
+			if (other is Boss)
+			{
+				return (
+					other.hitTestPoint(x, y - height / 2, true) ||
+					other.hitTestPoint(x - width / 2, y, true) ||
+					other.hitTestPoint(x + width / 2, y, true)
+				);
+			}
+			else if (other is Coin)
+			{
+				return Vector3D.distance(Position, other.Position) <= (width + other.width) / 2;
+			}
+			return false;
 		}
 		
 		// -- Get & Set -- //

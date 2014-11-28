@@ -11,7 +11,7 @@ package GameObjects.Coins
 		
 		public function BronzeCoin() 
 		{
-			super(new art_coinbrons());
+			super(new TempArt_BronzeCoin());
 			Value = 10;
 		}
 		

@@ -49,7 +49,7 @@ package
 			obj.ParentEngine = this;
 			
 			if (zInd >= 0)
-				Parent.addChildAt(obj, zInd);
+				Parent.addChildAt(obj, Math.min(zInd, Parent.numChildren));
 			else
 				Parent.addChild(obj);
 			

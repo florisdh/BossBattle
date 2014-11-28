@@ -8,11 +8,11 @@
   <compiler>
     <define append="true">
       <name>CONFIG::debug</name>
-      <value>false</value>
+      <value>true</value>
     </define>
     <define append="true">
       <name>CONFIG::release</name>
-      <value>true</value>
+      <value>false</value>
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
@@ -31,40 +31,39 @@
       <value>false</value>
     </define>
     <show-actionscript-warnings>false</show-actionscript-warnings>
-    <optimize>true</optimize>
-    <omit-trace-statements>true</omit-trace-statements>
-    <verbose-stacktraces>false</verbose-stacktraces>
+    <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>\\psf\Home\Desktop\BossBattle\src</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\src</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Temp\TempArt.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Player\Art_Player.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_Background.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Bosses\Art_Tiki.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\UI\Art_startscherm.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Bosses\boss2.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\UI\Art_Ui_Healthbar.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Bosses\Art_Pingbear.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Bosses\Boss4.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Bosses\MechMonster_Animations.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Bosses\Shade_Animations.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Player\Art_Bullet.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_Background2.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_background1.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\UI\Art_Startbutton.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_Background_Shade.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_Background_Mech.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\UI\upgradescherm.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\UI\buttons.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\bgfinn.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\bgdion.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Sounds\Audio.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Temp\TempArt.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Player\Art_Player.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Background\Art_Background.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\Art_Tiki.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\UI\Art_startscherm.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\boss2.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\UI\Art_Ui_Healthbar.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\Art_Pingbear.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\Boss4.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\MechMonster_Animations.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Bosses\Shade_Animations.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Player\Art_Bullet.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Background\Art_Background2.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Background\Art_background1.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\UI\Art_Startbutton.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Background\Art_Background_Shade.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Background\Art_Background_Mech.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\UI\upgradescherm.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\UI\buttons.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Background\bgfinn.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\Background\bgdion.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Sounds\Audio.swc</path-element>
+      <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\Art\2bgAndCoins.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>\\psf\Home\Desktop\BossBattle\src\Main.as</path-element>
+    <path-element>C:\Users\FDH\Documents\School\2014-2015\Projects\BossBattle\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#E2E2E2</default-background-color>
   <default-frame-rate>30</default-frame-rate>

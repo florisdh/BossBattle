@@ -76,6 +76,7 @@
     <element path="Art\Background\bgdion.swc" />
     <element path="Sounds\Aud_Soundtrack.swc" />
     <element path="Sounds\Audio.swc" />
+    <element path="Art\2bgAndCoins.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

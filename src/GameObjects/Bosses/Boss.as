@@ -6,6 +6,7 @@ package GameObjects.Bosses {
 	import flash.utils.Timer;
 	import GameObjects.GameObj;
 	import GameObjects.Character;
+	import GameObjects.MovingGameObj;
 	import GameObjects.Player;
 	
 	/**
@@ -155,19 +156,18 @@ package GameObjects.Bosses {
 		
 		override public function onCollide(other:GameObj):void 
 		{
-			if (other is Player)
+			if (other is MovingGameObj)
 			{
-				var player:Player = other as Player;
-				player.pushBack(Position, 3);
+				(other as MovingGameObj).pushBack(Position, 3);
+			}
+			
+			if (other is Player && _canHit)
+			{
+				_canHit = false;
+				_hitTimer.delay = HitInterval;
+				_hitTimer.start();
 				
-				if (_canHit)
-				{
-					_canHit = false;
-					_hitTimer.delay = HitInterval;
-					_hitTimer.start();
-					
-					player.Health.damage(HitDamage);
-				}
+				(other as Player).Health.damage(HitDamage);
 			}
 		}
 		

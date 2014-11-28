@@ -3,6 +3,7 @@ package GameObjects.Bullets {
 	import flash.events.Event;
 	import flash.geom.Vector3D;
 	import GameObjects.Bosses.Boss;
+	import GameObjects.GameObj;
 	
 	/**
 	 * ...

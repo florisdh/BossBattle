@@ -1,8 +1,11 @@
 package GameObjects.Bullets {
+	import Factories.CoinFactory;
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.geom.Vector3D;
 	import GameObjects.Bosses.Boss;
+	import GameObjects.Coins.Coin;
+	import GameObjects.GameObj;
 	
 	/**
 	 * ...
@@ -14,6 +17,8 @@ package GameObjects.Bullets {
 		
 		// -- Vars -- //
 		
+		private var _coinFactory:CoinFactory;
+		
 		// -- Construct -- //
 		
 		public function PlayerBullet() 
@@ -21,6 +26,8 @@ package GameObjects.Bullets {
 			super(new Art_Bullet());
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;
+			
+			_coinFactory = new CoinFactory();
 			
 			Damage = UserStats.Damage;
 			
@@ -35,8 +42,20 @@ package GameObjects.Bullets {
 		{
 			if (other is Boss)
 			{
-				(other as Boss).Health.damage(Damage);
-				(other as Boss).pushBack(Position, 8);
+				var boss:Boss = (other as Boss);
+				boss.Health.damage(Damage);
+				boss.pushBack(Position, 8);
+				
+				// Create coin
+				var amt:int = Math.floor(Math.random() * 3);
+				for (var i:int = 0; i < amt; i++) 
+				{
+					var newCoin:Coin = _coinFactory.create(CoinFactory.BRONZECOIN, ParentEngine);
+					newCoin.Position = Position.clone();
+					var targetPos:Vector3D = newCoin.Position.add(new Vector3D(-40 + Math.random() * 80, 20));
+					newCoin.jump(targetPos, 5);
+				}
+				
 				destroy();
 			}
 		}

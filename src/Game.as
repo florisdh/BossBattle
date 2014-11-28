@@ -13,6 +13,7 @@ package
 	import Interfaces.IUpdateable;
 	import Levels.Level;
 	import UI.InGame.BossHealthBar;
+	import UI.InGame.MoneyIndicator;
 	import UI.InGame.PlayerHealthIndicator;
 	import UI.InGame.UIController;
 	
@@ -47,6 +48,7 @@ package
 		private var _uiController:UIController;
 		private var _playerHealthBar:PlayerHealthIndicator;
 		private var _bossHealthBar:BossHealthBar;
+		private var _moneyIndicator:MoneyIndicator;
 		
 		// -- Construct -- //
 		
@@ -70,9 +72,14 @@ package
 			_playerHealthBar.y = stage.stageHeight - _playerHealthBar.height - 10;
 			_bossHealthBar = new BossHealthBar();
 			_bossHealthBar.x = (stage.stageWidth - _bossHealthBar.width) / 2;
+			_moneyIndicator = new MoneyIndicator();
+			_moneyIndicator.Money = UserStats.Money;
+			_moneyIndicator.x = stage.stageWidth - _moneyIndicator.width - 8;
+			_moneyIndicator.y = stage.stageHeight - _moneyIndicator.height - 8;
 			
 			_uiController.addControl(_playerHealthBar);
 			_uiController.addControl(_bossHealthBar);
+			_uiController.addControl(_moneyIndicator);
 			
 			_levelFactory = new LevelFactory();
 			
@@ -109,6 +116,12 @@ package
 		{
 			if (!_started) return;
 			
+			if (_moneyIndicator.Money != UserStats.Money)
+			{
+				_moneyIndicator.Money = UserStats.Money;
+				_moneyIndicator.x = stage.stageWidth - _moneyIndicator.width - 8;
+			}
+			
 			_uiController.update();
 			_engine.update();
 		}
@@ -130,6 +143,7 @@ package
 		private function onPlayerHit(e:Event):void 
 		{
 			_playerHealthBar.Health = _player.Health.Health;
+			_screenShake.shake(50, 2, 4);
 		}
 		
 		public function start(e:Event = null):void 
@@ -162,6 +176,7 @@ package
 			_levelIndex++;
 			if (_levelIndex >= LevelFactory.LEVELS_AMOUNT)
 			{
+				dispatchEvent(new Event(SUCCEED));
 				return;
 			}
 			
