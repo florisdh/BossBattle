@@ -1,4 +1,5 @@
 package Levels {
+	import Factories.CoinFactory;
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
@@ -22,6 +23,7 @@ package Levels {
 		
 		// -- Vars -- //
 		
+		protected var _coinFactory:CoinFactory;
 		protected var _started:Boolean;
 		protected var _engine:Engine;
 		protected var _bg:MovieClip;
@@ -33,16 +35,21 @@ package Levels {
 		{
 			_engine = engine;
 			_bg = bg;
-			_bg.scaleX = _bg.scaleY = 1.2;
-			_bg.x = -_bg.width * 0.1;
-			_bg.y = -_bg.height * 0.1;
 			CurrentBoss = boss;
-			CurrentBoss.addEventListener(Boss.DIED, onDone);
+			
 			init();
 		}
 		
 		private function init():void 
 		{
+			_bg.scaleX = _bg.scaleY = 1.2;
+			_bg.x = -_bg.width * 0.1;
+			_bg.y = -_bg.height * 0.1;
+			
+			CurrentBoss.addEventListener(Boss.DIED, onDone);
+			
+			_coinFactory = new CoinFactory();
+			
 			_engine.Parent.addChildAt(_bg, 0);
 			_engine.addObject(CurrentBoss, 1);
 		}

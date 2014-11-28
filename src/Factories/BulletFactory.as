@@ -1,7 +1,7 @@
 package Factories 
 {
-	import GameObjects.Bullet;
-	import GameObjects.PlayerBullet;
+	import GameObjects.Bullets.Bullet;
+	import GameObjects.Bullets.PlayerBullet;
 	/**
 	 * ...
 	 * @author FDH

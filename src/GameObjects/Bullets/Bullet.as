@@ -1,5 +1,4 @@
-package GameObjects 
-{
+package GameObjects.Bullets {
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.geom.Vector3D;
