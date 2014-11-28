@@ -49,14 +49,15 @@ package GameObjects
 		
 		// -- Construct -- //
 		
-		public function Player(maxHealth:Number) 
+		public function Player() 
 		{
+			// Set Art
 			super(new Art_Player());
 			_art.gotoAndStop(0);
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;
 			
-			Health = new Humanoid(maxHealth);
+			Health = new Humanoid(6);
 			
 			BulletSpawnPositions = new <Vector3D> [
 				new Vector3D(-width / 2.5, -height / 2),

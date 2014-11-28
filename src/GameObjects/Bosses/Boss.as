@@ -128,6 +128,12 @@ package GameObjects.Bosses {
 					TargetPos = new Vector3D(Target.x, y);
 				}
 			}
+			// Go Back to base
+			else if (_state == 0 && _targetPos == null)
+			{
+				var dis:Number = Vector3D.distance(Position, _readyPos);
+				if (dis > MoveSpeed) TargetPos = _readyPos;
+			}
 			
 		}
 		

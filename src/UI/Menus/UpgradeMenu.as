@@ -8,28 +8,20 @@ package UI.Menus
 	 */
 	public class UpgradeMenu extends Menu 
 	{
-		public static const BACK:String = "Back";
-		
-		public static const SHOOTSPEED:String = "ShootSpeed";
-		public static const HEALTH:String = "Health";
-		public static const DAMAGE:String = "Damage";
-		public static const MOVESPEED:String = "MoveSpeed";
-		
-		public var _shootSpeed:Number = 1;
-		public var _health:Number = 1;
-		public var _damage:Number = 1;
-		public var _moveSpeed:Number = 1;
-		
-		private var _upgradeButton:SimpleButton;
+		public static const BACK		:	String = "Back";
+		public static const SHOOTSPEED	:	String = "ShootSpeed";
+		public static const HEALTH		:	String = "Health";
+		public static const DAMAGE		:	String = "Damage";
+		public static const MOVESPEED	:	String = "MoveSpeed";
 		
 		public function UpgradeMenu() 
 		{
 			super();
 			
 			addButton(new TempArt_BackBtn(), 100, 100, BACK);
-			addButton(new TempArt_UpgradeButton(),	300,300,SHOOTSPEED);
+			addButton(new TempArt_UpgradeButton(), 300, 300, SHOOTSPEED);
 			addButton(new TempArt_UpgradeButton(), 300, 500, HEALTH);
-			addButton(new TempArt_UpgradeButton(),	700,300,DAMAGE);
+			addButton(new TempArt_UpgradeButton(), 700, 300, DAMAGE);
 			addButton(new TempArt_UpgradeButton(), 700, 500, MOVESPEED);
 			
 			addEventListener(SHOOTSPEED, OnShootSpeedPressed);
@@ -40,26 +32,34 @@ package UI.Menus
 		
 		private function OnShootSpeedPressed(e:Event):void 
 		{
-			_shootSpeed ++;
-			trace(_shootSpeed);
-		} 
+			if (UserStats.ShootInterval > UserStats.MinShootInterval)
+				UserStats.ShootInterval -= 100;
+			
+			trace(UserStats.ShootInterval);
+		}
 		
 		private function OnHealthPressed(e:Event):void 
 		{
-			_health ++;
-			trace(_health);
+			if (UserStats.Health < UserStats.MaxHealth)
+				UserStats.Health += 1;
+			
+			trace(UserStats.Health);
 		}
 		
 		private function OnDamagePressed(e:Event):void 
 		{
-			_damage ++;
-			trace(_damage);
+			if (UserStats.Damage < UserStats.MaxDamage)
+				UserStats.Damage *= 2;
+			
+			trace(UserStats.Damage);
 		}
 		
 		private function OnMoveSpeedPressed(e:Event):void 
 		{
-			_moveSpeed ++;
-			trace(_moveSpeed);
+			if (UserStats.MoveSpeed < UserStats.MaxMoveSpeed)
+				UserStats.MoveSpeed += 2;
+			
+			trace(UserStats.MoveSpeed);
 		}
 	}
 }

@@ -73,11 +73,15 @@ package
 			
 			_engine = new Engine(this);
 			
-			_player = new Player(6);
+			_player = new Player();
 			_player.x = stage.stageWidth / 2;
 			_player.y = stage.stageHeight - _player.height / 2 - 10;
 			_player.Health.addEventListener(Humanoid.CHANGED, onPlayerHit);
 			_engine.addObject(_player);
+			
+			// Load Current Stats
+			_player.Health.Health = UserStats.Health;
+			_player.ShootInterval = UserStats.ShootInterval;
 			
 			nextLevel();
 			
@@ -102,8 +106,6 @@ package
 		public function onKeyDown(e:KeyboardEvent):void 
 		{
 			if (!_started) return;
-			
-			//if (e.keyCode == 32) _screenShake.shake(50, 3, 4);
 			
 			_player.onKeyDown(e);
 		}
@@ -154,7 +156,7 @@ package
 			_level.CurrentBoss.Health.addEventListener(Humanoid.CHANGED, function ():void 
 			{
 				_bossHealthBar.Health = _level.CurrentBoss.Health.Health;
-				_screenShake.shake(50, 2, 3);
+				_screenShake.shake(50, 2, 8);
 			});
 			_level.addEventListener(Level.DONE, onLevelDone);
 			

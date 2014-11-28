@@ -23,7 +23,7 @@ package GameObjects
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;
 			
-			Damage = 5;
+			Damage = UserStats.Damage;
 			
 			_velo = new Vector3D(0, -30);
 		}
@@ -37,6 +37,7 @@ package GameObjects
 			if (other is Boss)
 			{
 				(other as Boss).Health.damage(Damage);
+				(other as Boss).pushBack(Position, 8);
 				destroy();
 			}
 		}

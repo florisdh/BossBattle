@@ -33,6 +33,9 @@ package Levels {
 		{
 			_engine = engine;
 			_bg = bg;
+			_bg.scaleX = _bg.scaleY = 1.2;
+			_bg.x = -_bg.width * 0.1;
+			_bg.y = -_bg.height * 0.1;
 			CurrentBoss = boss;
 			CurrentBoss.addEventListener(Boss.DIED, onDone);
 			init();
