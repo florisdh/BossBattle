@@ -26,18 +26,30 @@ package GameObjects.Bosses
 			_art.x = -_art.width / 2;
 			_art.y = -_art.height / 2;
 			
+			HitDamage = 1;
+			HitInterval = 0.5
+			
 			_stateSwitchTimer.delay = 4000;
+			_attack1Chance = 0.7;
+			_attack2Chance = 0;
 		}
 		
 		// -- Methods -- //
 		
-		private function attack():void 
+		override public function Attack1():void 
 		{
-			if (_state != 0) return;
-			_state = 1;
-			
 			_attackTargetReached = false;
-			TargetPos = new Vector3D(_readyPos.x, _readyPos.y + 270);
+			
+			var attackPos:Vector3D = Target.Position.subtract(Position);
+			var dis:Number = attackPos.length;
+			attackPos.normalize();
+			attackPos.scaleBy(dis - width / 3);
+			TargetPos = Position.add(attackPos);
+		}
+		
+		override public function Attack2():void 
+		{
+			super.Attack2();
 		}
 		
 		override public function update(e:Event = null):void 
@@ -47,32 +59,20 @@ package GameObjects.Bosses
 			
 		}
 		
-		override protected function onStateSwitch(e:TimerEvent):void 
-		{
-			if (_state == 0)
-			{
-				var rnd:int = Math.random() * 10;
-				if (rnd < 4)
-				{ // Attack State
-					attack();
-				}
-			}
-		}
-		
 		override protected function onTargetReach():void 
 		{
 			if (_state == 1)
 			{ // Move Attack
+				// Done
 				if (_attackTargetReached) _state = 0;
 				else
-				{
+				{ // Go Back To Normal Position
 					TargetPos = _readyPos;
 					_attackTargetReached = true;
 				}
 			}
 			
 			super.onTargetReach();
-			
 		}
 		
 	}

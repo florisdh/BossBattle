@@ -32,6 +32,8 @@ package GameObjects.Bosses {
 		// 0: Idle, 1:Move, 2:Attack, 3: Attack2
 		protected var _state:int = 0;
 		protected var _stateSwitchTimer:Timer;
+		protected var _attack1Chance:Number;
+		protected var _attack2Chance:Number;
 		
 		protected var _spawned:Boolean = false;
 		
@@ -54,7 +56,8 @@ package GameObjects.Bosses {
 			Health.addEventListener(Humanoid.DIED, onDied);
 			
 			MoveSpeed = 8;
-			Acceleration = 4;
+			Acceleration = 1;
+			BrakeSpeed = 8;
 			Folow = false;
 			
 			Position = spawn;
@@ -80,7 +83,19 @@ package GameObjects.Bosses {
 		
 		protected function onStateSwitch(e:TimerEvent):void 
 		{
+			if (_state != 0) return;
 			
+			var rnd:Number = Math.random();
+			if (rnd <= _attack1Chance)
+			{
+				_state = 1;
+				Attack1();
+			}
+			else if (rnd <= _attack1Chance + _attack2Chance)
+			{
+				_state = 2;
+				Attack2();
+			}
 		}
 		
 		override public function update(e:Event = null):void 
@@ -95,7 +110,7 @@ package GameObjects.Bosses {
 			{
 				// Reached
 				var dis:Number = Vector3D.distance(_targetPos, Position);
-				if (dis < MoveSpeed)
+				if (dis <= MoveSpeed * 2)
 				{
 					Position = _targetPos.clone();
 					_moveDir.scaleBy(0);
@@ -116,12 +131,12 @@ package GameObjects.Bosses {
 			
 		}
 		
-		public function set TargetPos(newVal:Vector3D):void 
+		public function Attack1():void 
 		{
-			// Calculate Movement velo to target
-			_targetPos = newVal;
-			_moveDir = _targetPos.subtract(Position);
-			_moveDir.normalize();
+		}
+		
+		public function Attack2():void 
+		{
 		}
 		
 		protected function onTargetReach():void 
@@ -168,6 +183,17 @@ package GameObjects.Bosses {
 			super.stop(e);
 			_stateSwitchTimer.stop();
 		}
+		
+		// -- Get & Set -- //
+		
+		public function set TargetPos(newVal:Vector3D):void 
+		{
+			// Calculate Movement velo to target
+			_targetPos = newVal;
+			_moveDir = _targetPos.subtract(Position);
+			_moveDir.normalize();
+		}
+		
 		
 	}
 

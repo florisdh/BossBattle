@@ -1,18 +1,14 @@
-gertje kaasmaker
-
 Doing:
 	- Boss 2, 3, 4, 5, 6 AI
 	
 TODO:
-	- Bullet Impact
 	
 	- Player Skills System
-	- Player Health
-	
-	- BaseClass for Boss, Player and Minions
 	
 	- Minions
+	- Minions AI
 	- Minions Spawning
+	
 	- Coins
 	- Coins Spawning
 	
@@ -20,6 +16,9 @@ Bugs:
 	
 	
 Done:
+	- BaseClass for Boss, Player and Minions
+	- Player Health
+	- Bullet Impact
 	- Boss Health
 	- Boss 1 AI
 	- Boss base

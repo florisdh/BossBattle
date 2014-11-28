@@ -6,6 +6,8 @@ package
 	 */
 	public class UserStats 
 	{
+		////// Only One player so why not a static class //////
+		
 		public static var Money:Number		= 0;
 		public static var MoveSpeed:Number	= 1;
 		public static var ShootSpeed:Number	= 1;

@@ -66,7 +66,6 @@ package
 			{
 				_health = newVal;
 				dispatchEvent(new Event(CHANGED));
-				trace(_health);
 			}
 		}
 		

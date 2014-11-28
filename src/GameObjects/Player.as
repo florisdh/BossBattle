@@ -148,7 +148,6 @@ package GameObjects
 		override public function update(e:Event = null):void 
 		{
 			if (!_started) return;
-			super.update(e);
 			
 			/// Set user input ///
 			
@@ -162,12 +161,33 @@ package GameObjects
 			else if (_keyDown[KEY_RIGHT]) _moveDir.x = 1;
 			else _moveDir.x = 0;
 			
+			// Normalize
+			if (_moveDir.length > 0)
+			{
+				_moveDir.normalize();
+			}
 			
 			/// Bound to world ///
-			if (x - width / 2 < 0) x = width / 2;
-			if (x + width / 2 > stage.stageWidth) x = stage.stageWidth - width / 2;
-			if (y - height / 2 < 0) y = height / 2;
-			if (y + height / 2 > stage.stageHeight) y = stage.stageHeight - height / 2;
+			if (x - width / 2 < 0)
+			{
+				x = width / 2;
+				_velocity.x = 0;
+			}
+			if (x + width / 2 > stage.stageWidth)
+			{
+				x = stage.stageWidth - width / 2;
+				_velocity.x = 0;
+			}
+			if (y - height / 2 < 0)
+			{
+				y = height / 2;
+				_velocity.y = 0;
+			}
+			if (y + height / 2 > stage.stageHeight)
+			{
+				y = stage.stageHeight - height / 2;
+				_velocity.y = 0;
+			}
 			
 			/// Animation ///
 			
@@ -183,6 +203,9 @@ package GameObjects
 				_walkAnim = true;
 				_art.gotoAndPlay(0);
 			}
+			
+			super.update(e);
+			//trace(_velocity);
 			
 			/// Shoot ///
 			if (_keyDown[KEY_SHOOT]) shoot();
