@@ -51,6 +51,11 @@
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Player\Art_Bullet.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_Background2.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_background1.swc</path-element>
+      <path-element>\\psf\Home\Desktop\BossBattle\Art\UI\Art_Startbutton.swc</path-element>
+      <path-element>\\psf\Home\Desktop\BossBattle\Art\2bgAndCoins.swc</path-element>
+      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_Background_Shade.swc</path-element>
+      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_Background_Mech.swc</path-element>
+      <path-element>\\psf\Home\Desktop\BossBattle\Art\UI\upgradescherm.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

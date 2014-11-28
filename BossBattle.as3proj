@@ -67,6 +67,12 @@
     <element path="Art\Player\Art_Bullet.swc" />
     <element path="Art\Background\Art_Background2.swc" />
     <element path="Art\Background\Art_background1.swc" />
+    <element path="Art\UI\Art_Startbutton.swc" />
+    <element path="Art\Background\bgdion.swc" />
+    <element path="Art\2bgAndCoins.swc" />
+    <element path="Art\Background\Art_Background_Shade.swc" />
+    <element path="Art\Background\Art_Background_Mech.swc" />
+    <element path="Art\UI\upgradescherm.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

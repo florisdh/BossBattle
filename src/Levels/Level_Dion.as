@@ -18,7 +18,7 @@ package Levels
 			var spawnPos:Vector3D = new Vector3D(580, -100);
 			var targetPos:Vector3D = new Vector3D(spawnPos.x, 250);
 			
-			super(engine, new Art_Background(), new Boss_Dion(spawnPos, targetPos));
+			super(engine, new art_bgdion(), new Boss_Dion(spawnPos, targetPos));
 		}
 		
 	}

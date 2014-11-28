@@ -18,6 +18,8 @@ package UI.Menus
 		{
 			super();
 			
+			addChild(new art_upgradescherm());
+			
 			addButton(new TempArt_BackBtn(), 100, 100, BACK);
 			addButton(new TempArt_UpgradeButton(), 300, 300, SHOOTSPEED);
 			addButton(new TempArt_UpgradeButton(), 300, 500, HEALTH);
