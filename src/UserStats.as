@@ -25,25 +25,25 @@ package
 		// Max
 		public static var MaxMoveSpeed		: Number	= 20;
 		public static var MinShootInterval	: Number	= 100;
-		public static var MaxDamage			: Number	= 100;
+		public static var MaxDamage			: Number	= 165;
 		public static var MaxHealth			: Number	= 6;
 		
 		// Upgrade Steps
 		public static var MoveSpeedUpgrade		: Number	= 2;
 		public static var ShootIntervaUpgrade	: Number	= 100;
-		public static var DamageUpgrade			: Number	= 10;
+		public static var DamageUpgrade			: Number	= 15;
 		public static var HealthUpgrade			: Number	= 1;
 		
 		// Upgrade cash
 		public static var MoveSpeedUpgradeCash		: int	= 50;
 		public static var ShootIntervalUpgradeCash	: int	= 50;
-		public static var DamageUpgradeCash			: int	= 50;
+		public static var DamageUpgradeCash			: int	= 30;
 		public static var HealthUpgradeCash			: int	= 50;
 		
 		// Upgrade cash incresement
 		public static var MoveSpeedUpgradeIncease			: int	= 30;
 		public static var ShootIntervalUpgradeCashIncease	: int	= 60;
-		public static var DamageUpgradeCashIncease			: int	= 50;
+		public static var DamageUpgradeCashIncease			: int	= 40;
 		public static var HealthUpgradeCashIncease			: int	= 100;
 		
 		public static function Save():void 

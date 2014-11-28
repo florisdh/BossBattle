@@ -122,6 +122,7 @@ package
 				_moneyIndicator.x = stage.stageWidth - _moneyIndicator.width - 8;
 			}
 			
+			_level.update();
 			_uiController.update();
 			_engine.update();
 		}

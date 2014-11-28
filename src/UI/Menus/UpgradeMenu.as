@@ -58,12 +58,24 @@ package UI.Menus
 			_damageUpgradePrice		= UserStats.DamageUpgradeCash + (UserStats.Damage - UserStats.MinDamage) / UserStats.DamageUpgrade * UserStats.DamageUpgradeCashIncease;
 			_moveSpeedUpgradePrice	= UserStats.MoveSpeedUpgradeCash + (UserStats.MoveSpeed - UserStats.MinMoveSpeed) / UserStats.MoveSpeedUpgrade * UserStats.MoveSpeedUpgradeIncease;
 			
+			var shootSpeedText:String = _shootSpeedUpgradePrice + " $";
+			if (UserStats.ShootInterval <= UserStats.MinShootInterval) shootSpeedText = "~";
+			
+			var healthText:String = _healthUpgradePrice + " $";
+			if (UserStats.Health >= UserStats.MaxHealth) healthText = "~";
+			
+			var damageText:String = _damageUpgradePrice + " $";
+			if (UserStats.Damage >= UserStats.MaxDamage) damageText = "~";
+			
+			var moveSpeedText:String = _moveSpeedUpgradePrice + " $";
+			if (UserStats.MoveSpeed >= UserStats.MaxMoveSpeed) moveSpeedText = "~";
+			
 			// Add Labels
 			_moneyText		= addLabel(UserStats.Money + " $", 300, 120);
-			_shootSpeedText	= addLabel(_shootSpeedUpgradePrice + " $", 350, 305);
-			_healthText		= addLabel(_healthUpgradePrice + " $", 350, 455);
-			_damageText		= addLabel(_damageUpgradePrice + " $", 750, 305);
-			_moveSpeedText	= addLabel(_moveSpeedUpgradePrice + " $", 750, 455);
+			_shootSpeedText	= addLabel(shootSpeedText, 350, 305);
+			_healthText		= addLabel(healthText, 350, 455);
+			_damageText		= addLabel(damageText, 750, 305);
+			_moveSpeedText	= addLabel(moveSpeedText, 750, 455);
 			
 			// Add Click Events
 			addEventListener(BACK, OnBackPressed);

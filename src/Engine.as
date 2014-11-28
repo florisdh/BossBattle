@@ -140,6 +140,24 @@ package
 				removeObjectFromId(i);
 			}
 		}
+		
+		public function getItemsFromType(type:Class):Vector.<GameObj> 
+		{
+			var l:int = _gameObjs.length;
+			var rv:Vector.<GameObj> = new Vector.<GameObj>();
+			for (var i:int = 0; i < l; i++) 
+			{
+				if (_gameObjs[i] is type) rv.push(_gameObjs[i]);
+			}
+			return rv;
+		}
+		
+		// -- Get & Set -- //
+		
+		public function get Items():Vector.<GameObj>
+		{
+			return _gameObjs;
+		}
 	}
 
 }

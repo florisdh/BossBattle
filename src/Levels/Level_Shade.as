@@ -18,6 +18,8 @@ package Levels
 			var targetPos:Vector3D = new Vector3D(spawnPos.x, 150);
 			
 			super(engine, new Art_Background_Shade(), new Boss_Shade(spawnPos, targetPos));
+			
+			DoneTime = 3000;
 		}
 		
 	}

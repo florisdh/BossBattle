@@ -3,7 +3,11 @@ package Levels {
 	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 	import GameObjects.Bosses.Boss;
+	import GameObjects.Coins.Coin;
+	import GameObjects.GameObj;
 	import GameObjects.Player;
 	import Interfaces.IStartable;
 	import Interfaces.IUpdateable;
@@ -20,6 +24,7 @@ package Levels {
 		// -- Properties -- //
 		
 		public var CurrentBoss:Boss;
+		public var DoneTime:int = 1500;
 		
 		// -- Vars -- //
 		
@@ -28,6 +33,7 @@ package Levels {
 		protected var _engine:Engine;
 		protected var _bg:MovieClip;
 		protected var _player:Player;
+		protected var _doneTimer:Timer;
 		
 		// -- Construct -- //
 		
@@ -36,6 +42,9 @@ package Levels {
 			_engine = engine;
 			_bg = bg;
 			CurrentBoss = boss;
+			
+			_doneTimer = new Timer(DoneTime, 1);
+			_doneTimer.addEventListener(TimerEvent.TIMER, onDoneTimer);
 			
 			init();
 		}
@@ -64,7 +73,15 @@ package Levels {
 		
 		public function update(e:Event = null):void 
 		{
-			
+			if (_doneTimer.running)
+			{
+				// Collect coins
+				var coins:Vector.<GameObj> = _engine.getItemsFromType(Coin);
+				for (var i:int = 0; i < coins.length; i++) 
+				{
+					(coins[i] as Coin).jump(_player.Position, 10);
+				}
+			}
 		}
 		
 		public function start(e:Event = null):void 
@@ -80,15 +97,27 @@ package Levels {
 			if (!_started) return;
 			_started = false;
 			
-			CurrentBoss.stop();
+			if (CurrentBoss)
+			{
+				CurrentBoss.stop();
+				_engine.removeObject(CurrentBoss);
+			}
 			
-			_engine.Parent.removeChild(_bg);
-			_engine.removeObject(CurrentBoss);
+			if (_bg) _engine.Parent.removeChild(_bg);
 		}
 		
 		private function onDone(e:Event = null):void 
 		{
-   			dispatchEvent(new Event(DONE));
+			_engine.removeObject(CurrentBoss);
+			CurrentBoss = null;
+			
+			_doneTimer.delay = DoneTime;
+   			_doneTimer.start();
+		}
+		
+		private function onDoneTimer(e:TimerEvent):void 
+		{
+			dispatchEvent(new Event(DONE));
 		}
 		
 		public function set TargetPlayer(newVal:Player):void
