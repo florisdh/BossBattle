@@ -49,6 +49,8 @@
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Bosses\MechMonster_Animations.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Bosses\Shade_Animations.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Player\Art_Bullet.swc</path-element>
+      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_Background2.swc</path-element>
+      <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\Art_background1.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

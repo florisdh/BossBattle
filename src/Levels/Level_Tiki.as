@@ -18,7 +18,7 @@ package Levels
 			var spawnPos:Vector3D = new Vector3D(580, -400);
 			var targetPos:Vector3D = new Vector3D(spawnPos.x, 150);
 			
-			super(engine, new Art_Background(), new Boss_Tiki(spawnPos, targetPos));
+			super(engine, new Art_Background1(), new Boss_Tiki(spawnPos, targetPos));
 		}
 		
 	}

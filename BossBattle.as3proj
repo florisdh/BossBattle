@@ -65,6 +65,8 @@
     <element path="Art\Bosses\MechMonster_Animations.swc" />
     <element path="Art\Bosses\Shade_Animations.swc" />
     <element path="Art\Player\Art_Bullet.swc" />
+    <element path="Art\Background\Art_Background2.swc" />
+    <element path="Art\Background\Art_background1.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

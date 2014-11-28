@@ -19,7 +19,7 @@ package Levels
 			var spawnPos:Vector3D = new Vector3D(550, -400);
 			var targetPos:Vector3D = new Vector3D(spawnPos.x, 150);
 			
-			super(engine, new Art_Background(), new Boss_PingBear(spawnPos, targetPos));
+			super(engine, new Art_Background2(), new Boss_PingBear(spawnPos, targetPos));
 		}
 		
 	}
