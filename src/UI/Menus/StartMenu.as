@@ -14,7 +14,7 @@ package UI.Menus
 		public static const START:String = "Start";
 		
 		// -- Vars -- //
-		var sountTrack:Sound = new Aud_soundtrack.wav();
+		var sountTrack:Sound = new Aud_soundtrack();
 		
 		private var _startButton:SimpleButton;
 		

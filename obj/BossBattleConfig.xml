@@ -60,7 +60,7 @@
       <path-element>\\psf\Home\Desktop\BossBattle\Art\UI\buttons.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\bgfinn.swc</path-element>
       <path-element>\\psf\Home\Desktop\BossBattle\Art\Background\bgdion.swc</path-element>
-      <path-element>\\psf\Home\Desktop\BossBattle\Sounds\Aud_Soundtrack.swc</path-element>
+      <path-element>\\psf\Home\Desktop\BossBattle\Sounds\Audio.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
