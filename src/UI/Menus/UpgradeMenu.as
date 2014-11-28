@@ -20,11 +20,11 @@ package UI.Menus
 			
 			addChild(new art_upgradescherm());
 			
-			addButton(new TempArt_BackBtn(), 100, 100, BACK);
-			addButton(new TempArt_UpgradeButton(), 300, 300, SHOOTSPEED);
-			addButton(new TempArt_UpgradeButton(), 300, 500, HEALTH);
-			addButton(new TempArt_UpgradeButton(), 700, 300, DAMAGE);
-			addButton(new TempArt_UpgradeButton(), 700, 500, MOVESPEED);
+			addButton(new art_buttonback(), 950, 500, BACK);
+			addButton(new art_buttonbullets(), 200, 250, SHOOTSPEED);
+			addButton(new art_buttonhealth(), 200, 400, HEALTH);
+			addButton(new art_buttondamage(), 600, 250, DAMAGE);
+			addButton(new art_buttonspeed(), 600, 400, MOVESPEED);
 			
 			addEventListener(SHOOTSPEED, OnShootSpeedPressed);
 			addEventListener(HEALTH, OnHealthPressed);
