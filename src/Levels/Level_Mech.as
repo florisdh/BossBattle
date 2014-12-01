@@ -14,8 +14,8 @@ package Levels
 		
 		public function Level_Mech(engine:Engine) 
 		{
-			var spawnPos:Vector3D = new Vector3D(300, -400);
-			var targetPos:Vector3D = new Vector3D(spawnPos.x, 150);
+			var spawnPos:Vector3D = new Vector3D(580, -400);
+			var targetPos:Vector3D = new Vector3D(spawnPos.x, 250);
 			
 			super(engine, new art_dildo(), new Boss_Mech(spawnPos, targetPos));
 		}

@@ -74,7 +74,6 @@ package GameObjects.Coins
 			
 			if (other is Player)
 			{
-				trace("Gain");
 				UserStats.Money += Value;
 				destroy();
 			}

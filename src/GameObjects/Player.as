@@ -231,7 +231,8 @@ package GameObjects
 			}
 			else if (other is Coin)
 			{
-				return Vector3D.distance(Position, other.Position) <= (width + other.width) / 2;
+				//return Vector3D.distance(Position, other.Position) <= (width + other.width) / 2;
+				return super.willCollide(other);
 			}
 			return false;
 		}

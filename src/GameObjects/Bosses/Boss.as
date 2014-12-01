@@ -22,11 +22,10 @@ package GameObjects.Bosses {
 		// -- Properties -- //
 		
 		public var Target:Player;
-		public var Folow:Boolean = false;
-		public var FollowRange:Number = 10;
 		public var Health:Humanoid;
 		public var HitDamage:Number = 1;
 		public var HitInterval:int = 500;
+		public var AutoMoveToSpawnPos:Boolean = true;
 		
 		// -- Vars -- //
 		
@@ -52,6 +51,8 @@ package GameObjects.Bosses {
 		public function Boss(art:MovieClip, spawn:Vector3D, readyPos:Vector3D) 
 		{
 			super(art);
+			_art.x = -_art.width / 2;
+			_art.y = -_art.height / 2;
 			
 			Health = new Humanoid(100);
 			Health.addEventListener(Humanoid.DIED, onDied);
@@ -59,7 +60,6 @@ package GameObjects.Bosses {
 			MoveSpeed = 8;
 			Acceleration = 1;
 			BrakeSpeed = 8;
-			Folow = false;
 			
 			HitDamage = 1;
 			HitInterval = 350;
@@ -106,9 +106,6 @@ package GameObjects.Bosses {
 		{
 			if (!_started || Health.Died) return;
 			
-			// Apply Smooth Movement
-			super.update();
-			
 			// Move To Target Pos
 			if (_targetPos)
 			{
@@ -125,22 +122,15 @@ package GameObjects.Bosses {
 					onTargetReach();
 				}
 			}
-			// Move To Player
-			else if (Target && Folow)
-			{
-				var dis:Number = Vector3D.distance(Position, Target.Position);
-				
-				if (dis > FollowRange)
-				{
-					TargetPos = new Vector3D(Target.x, y);
-				}
-			}
 			// Go Back to base
-			else if (_state == 0 && _targetPos == null)
+			else if (AutoMoveToSpawnPos && _state == 0)
 			{
 				var dis:Number = Vector3D.distance(Position, _readyPos);
 				if (dis > MoveSpeed) TargetPos = _readyPos;
 			}
+			
+			// Apply Smooth Movement
+			super.update();
 			
 		}
 		

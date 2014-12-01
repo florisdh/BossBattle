@@ -34,14 +34,11 @@ package
 		
 		public function damage(dmg:Number):void 
 		{
-			// Check if dead
-			if (Health <= 0 && !Died) Died = true;
-			
 			// Apply Damage
 			Health -= dmg;
 			
 			// Dispatch die event after health change event
-			if (Died) dispatchEvent(new Event(DIED));
+			if (!Died && _health <= 0) dispatchEvent(new Event(DIED));
 		}
 		
 		public function heal(amt:Number):void 

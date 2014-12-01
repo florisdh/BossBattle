@@ -144,7 +144,7 @@ package
 		private function onPlayerHit(e:Event):void 
 		{
 			_playerHealthBar.Health = _player.Health.Health;
-			_screenShake.shake(50, 2, 4);
+			_screenShake.shake(50, 2, 6);
 		}
 		
 		public function start(e:Event = null):void 

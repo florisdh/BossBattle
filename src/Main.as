@@ -3,6 +3,8 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
 	import Interfaces.IKeyInputHandler;
 	import Interfaces.IStartable;
 	import UI.Menus.DeathMenu;
@@ -23,6 +25,8 @@ package
 		private var _menu:Menu;
 		private var _game:Game;
 		
+		private var _sountTrack:Sound = new Aud_soundtrack();
+		
 		// -- Construct -- //
 		
 		public function Main():void 
@@ -40,6 +44,8 @@ package
 			_game = new Game();
 			_game.addEventListener(Game.FAILED, onFailed);
 			_game.addEventListener(Game.SUCCEED, onSucceed);
+			
+			soundLoop();
 			
 			showStartMenu();
 			
@@ -123,5 +129,18 @@ package
 				stage.focus = null;
 			}
 		}
+		
+		private function soundLoop():void
+		{
+			var chanel:SoundChannel = _sountTrack.play();
+			chanel.addEventListener(Event.SOUND_COMPLETE, soundComplete);
+		}
+		
+		private function soundComplete(e:Event):void 
+		{
+			SoundChannel(e.target).removeEventListener(e.type, soundComplete);
+			soundLoop();
+		}
+		
 	}
 }

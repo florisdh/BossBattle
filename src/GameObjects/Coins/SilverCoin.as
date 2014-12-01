@@ -11,7 +11,7 @@ package GameObjects.Coins
 		
 		public function SilverCoin() 
 		{
-			super(new TempArt_SilverCoin());
+			super(new Art_Coinsilver());
 			Value = 50;
 		}
 		

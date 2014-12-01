@@ -2,9 +2,7 @@ Doing:
 	
 TODO:
 	? Minions
-	? Minions AI
-	? Minions Spawning
-	
+	? Rockets
 Bugs:
 	
 	

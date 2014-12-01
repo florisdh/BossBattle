@@ -14,8 +14,8 @@ package Levels
 		
 		public function Level_Finn(engine:Engine) 
 		{
-			var spawnPos:Vector3D = new Vector3D(350, -400);
-			var targetPos:Vector3D = new Vector3D(spawnPos.x, 150);
+			var spawnPos:Vector3D = new Vector3D(550, -400);
+			var targetPos:Vector3D = new Vector3D(spawnPos.x, 250);
 			
 			super(engine, new art_bgfinn(), new Boss_Finn(spawnPos, targetPos));
 		}

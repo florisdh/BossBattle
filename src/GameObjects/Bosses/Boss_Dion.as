@@ -14,6 +14,9 @@ package GameObjects.Bosses
 		public function Boss_Dion(spawn:Vector3D, readyPos:Vector3D) 
 		{
 			super(new Art_Dion(), spawn, readyPos);
+			// Misplaced art
+			_art.x = 0;
+			_art.y = 0;
 			
 			Health.MaxHealth = 1500;
 			Health.Health = Health.MaxHealth;

@@ -11,7 +11,7 @@ package GameObjects.Coins
 		
 		public function GoldCoin() 
 		{
-			super(new TempArt_GoldCoin());
+			super(new Art_Coingold());
 			Value = 100;
 		}
 		

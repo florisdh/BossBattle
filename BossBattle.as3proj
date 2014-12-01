@@ -77,6 +77,9 @@
     <element path="Sounds\Aud_Soundtrack.swc" />
     <element path="Sounds\Audio.swc" />
     <element path="Art\2bgAndCoins.swc" />
+    <element path="Art\Coins\Art_Coingold.swc" />
+    <element path="Art\Coins\Art_Coinbronze.swc" />
+    <element path="Art\Coins\Art_Coinsilver.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

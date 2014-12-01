@@ -26,9 +26,6 @@ package GameObjects.Bosses
 			Health.MaxHealth = 200;
 			Health.Health = Health.MaxHealth;
 			
-			_art.x = -_art.width / 2;
-			_art.y = -_art.height / 2;
-			
 			_stateSwitchTimer.delay = 5000;
 			_attack1Chance = 0.7;
 			_attack2Chance = 0;
